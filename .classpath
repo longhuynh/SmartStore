@@ -29,6 +29,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/OTHERS/workspace/spring/SmartStore/java-mail-1.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fiseha/Desktop/java-mail-1.4.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
