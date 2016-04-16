@@ -35,9 +35,6 @@ public class HomeController {
 
 		return "welcome";
 	}
-
-
-
 	
 	/* @ModelAttribute
 		public void init(Model model){
