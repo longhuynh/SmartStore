@@ -7,12 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import com.smartstore.domain.Admin;
 
-
 @Repository
 public interface AdminRepository extends CrudRepository<Admin, Long> {
 
 	@Query("SELECT a FROM Admin a WHERE a.credentials.username = :name")
-	public Admin findAdminByUserName(
-			@Param(value = "name") String name);
+	public Admin findAdminByUserName(@Param(value = "name") String name);
 
 }
