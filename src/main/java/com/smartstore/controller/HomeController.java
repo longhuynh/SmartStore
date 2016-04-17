@@ -35,7 +35,6 @@ public class HomeController {
 
 		return "welcome";
 	}
-	
 	/* @ModelAttribute
 		public void init(Model model){
 			model.addAttribute("products", productService.findApprovedProducts());
