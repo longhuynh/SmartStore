@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.smartstore.domain.Vendor;
+import com.smartstore.repository.CredentialRepository;
+import com.smartstore.repository.VendorRepository;
+import com.smartstore.service.VendorService;
 
 
-import edu.mum.eselling.domain.Vendor;
-import edu.mum.eselling.repository.CredentialRepository;
-import edu.mum.eselling.repository.VendorRepository;
-import edu.mum.eselling.service.VendorService;
 @Service
 @Transactional
 public class VendorServiceImpl implements VendorService{

@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.mum.eselling.domain.MyFinance;
-import edu.mum.eselling.repository.MyFinanceRepository;
-import edu.mum.eselling.service.MyFinanceService;
+import com.smartstore.domain.MyFinance;
+import com.smartstore.repository.MyFinanceRepository;
+import com.smartstore.service.MyFinanceService;
+
 
 
 @Service

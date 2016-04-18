@@ -1,8 +1,6 @@
 package com.smartstore.service;
 
-
-
-import edu.mum.eselling.domain.Vendor;
+import com.smartstore.domain.Vendor;
 
 public interface VendorService {
 

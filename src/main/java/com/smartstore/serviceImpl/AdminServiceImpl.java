@@ -9,18 +9,24 @@ import com.smartstore.repository.AdminRepository;
 import com.smartstore.repository.CredentialRepository;
 import com.smartstore.service.AdminService;
 
+
 @Service
 @Transactional
-public class AdminServiceImpl implements AdminService {
-
-	@Autowired
+public class AdminServiceImpl implements AdminService{
+	
+	@Autowired 
 	AdminRepository adminRepository;
-
-	@Autowired
+	
+	
+	@Autowired 
 	private CredentialRepository credentialRepository;
-
-	public Admin getAdminByUserName(String name) {
-
+	
+	public Admin getAdminByUserName(String name){
+		
 		return adminRepository.findAdminByUserName(name);
 	}
+	
+	
+	
+
 }
