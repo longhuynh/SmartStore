@@ -10,21 +10,16 @@ import com.smartstore.domain.Credentials;
 import com.smartstore.repository.CredentialRepository;
 import com.smartstore.service.CredentialsService;
 
-
-
 @Service
 @Transactional
-public class CredentilasServiceImpl implements CredentialsService{
-	
-	
+public class CredentilasServiceImpl implements CredentialsService {
+
 	@Autowired
 	CredentialRepository credentialRepository;
-	
-	public List<Credentials> getAll(){
-		
-		return (List<Credentials>)credentialRepository.findAll();
-	}
 
-	
+	public List<Credentials> getAll() {
+
+		return (List<Credentials>) credentialRepository.findAll();
+	}
 
 }

@@ -14,39 +14,41 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
+
 @Entity
 public class MyFinance implements Serializable {
 
 	private static final long serialVersionUID = -3794885616176050983L;
-	
+
 	@Id
 	@GeneratedValue
 	private long Id;
-   
-	@NotNull(message="{NotEmpty.CreditCard.number.validation}")
-	@Pattern(regexp="[2-9][0-9]{15}", message="{Pattern.CreditCard.number.validation}")
+
+	@NotNull(message = "{NotEmpty.CreditCard.number.validation}")
+	@Pattern(regexp = "[2-9][0-9]{15}", message = "{Pattern.CreditCard.number.validation}")
 
 	private String creditCardNo;
-	
-	private String creditCardType;
-	@NotNull(message="{NotEmpty.CreditCard.expireMonth.validation}")
-	private Integer expMonth;
-	@NotNull(message="{NotEmpty.CreditCard.expireYear.validation}")
-	private  Integer expYear;
-	@NotNull(message="{NotEmpty.CreditCard.cvv.validation}")
-	@Range(min=100, max=999) 
-	private  Integer securityCode;
 
-	@NotEmpty(message="{NotEmpty.CreditCard.name.validation}")
-	//@Pattern(regexp="[a-zA-z]+ [a-zA-Z]*[.]? [a-zA-Z]+", message="{Pattern.CreditCard.name.validation}")
+	private String creditCardType;
+	@NotNull(message = "{NotEmpty.CreditCard.expireMonth.validation}")
+	private Integer expMonth;
+	@NotNull(message = "{NotEmpty.CreditCard.expireYear.validation}")
+	private Integer expYear;
+	@NotNull(message = "{NotEmpty.CreditCard.cvv.validation}")
+	@Range(min = 100, max = 999)
+	private Integer securityCode;
+
+	@NotEmpty(message = "{NotEmpty.CreditCard.name.validation}")
+	// @Pattern(regexp="[a-zA-z]+ [a-zA-Z]*[.]? [a-zA-Z]+",
+	// message="{Pattern.CreditCard.name.validation}")
 	private String nameOnCard;
-	
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private  CreditCard creditCard;
-    private BigDecimal creditLimit;
-    private BigDecimal creditAvailable;
-    private BigDecimal creditUsed;
-	
+	private CreditCard creditCard;
+	private BigDecimal creditLimit;
+	private BigDecimal creditAvailable;
+	private BigDecimal creditUsed;
+
 	public MyFinance() {
 		super();
 		creditLimit = new BigDecimal(50_000);
@@ -59,7 +61,6 @@ public class MyFinance implements Serializable {
 	public void setCreditCardType(String creditCardType) {
 		this.creditCardType = creditCardType;
 	}
-
 
 	public String getNameOnCard() {
 		return nameOnCard;
@@ -76,6 +77,7 @@ public class MyFinance implements Serializable {
 	public void setCreditCardNo(String creditCardNo) {
 		this.creditCardNo = creditCardNo;
 	}
+
 	public Integer getExpMonth() {
 		return expMonth;
 	}
@@ -99,8 +101,8 @@ public class MyFinance implements Serializable {
 	public void setSecurityCode(Integer securityCode) {
 		this.securityCode = securityCode;
 	}
-	
-	public MyFinance(CreditCard creditCard){
+
+	public MyFinance(CreditCard creditCard) {
 		this.creditCard = creditCard;
 		creditLimit = new BigDecimal(50_000);
 	}
@@ -136,6 +138,5 @@ public class MyFinance implements Serializable {
 	public void setCreditUsed(BigDecimal creditUsed) {
 		this.creditUsed = creditUsed;
 	}
-	
 
 }

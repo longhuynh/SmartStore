@@ -3,9 +3,6 @@ package com.smartstore.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import antlr.PythonCodeGenerator;
-
-
 public class CartItem implements Serializable {
 
 	private static final long serialVersionUID = -6212595579666071819L;
@@ -13,14 +10,15 @@ public class CartItem implements Serializable {
 	private int quantity;
 	private Product product;
 	private BigDecimal totalPrice;
-	
+
 	public CartItem() {
 		super();
 	}
-	public CartItem(Product product){
-		this.quantity=1;
-		this.product=product;
-		this.totalPrice=product.getUnitPrice();
+
+	public CartItem(Product product) {
+		this.quantity = 1;
+		this.product = product;
+		this.totalPrice = product.getUnitPrice();
 	}
 
 	public int getQuantity() {
@@ -47,5 +45,4 @@ public class CartItem implements Serializable {
 		this.totalPrice = totalPrice;
 	}
 
-	
 }

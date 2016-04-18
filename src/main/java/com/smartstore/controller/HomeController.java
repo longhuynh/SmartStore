@@ -1,13 +1,9 @@
 package com.smartstore.controller;
 
-
-
-
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.ProductService;
 
-
-
 @Controller
 public class HomeController {
 
@@ -29,17 +23,16 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryService;
 
-
-	@RequestMapping(value={"/","/welcome"})
+	@RequestMapping(value = { "/", "/welcome" })
 	public String welcome(Model model) {
 
 		return "welcome";
 	}
-	 @ModelAttribute
-		public void init(Model model){
-			model.addAttribute("products", productService.findApprovedProducts());
-			model.addAttribute("categories", categoryService.findAll());
-		}
 
+	@ModelAttribute
+	public void init(Model model) {
+		model.addAttribute("products", productService.findApprovedProducts());
+		model.addAttribute("categories", categoryService.findAll());
+	}
 
 }

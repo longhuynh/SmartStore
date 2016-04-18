@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.smartstore.domain.Category;
 
-
-
 public interface CategoryService {
 
 	public List<Category> findAll();

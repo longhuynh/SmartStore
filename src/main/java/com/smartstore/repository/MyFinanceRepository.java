@@ -9,4 +9,3 @@ import com.smartstore.domain.MyFinance;
 public interface MyFinanceRepository extends CrudRepository<MyFinance, Long> {
 
 }
-

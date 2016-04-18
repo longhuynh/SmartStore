@@ -7,34 +7,25 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.validation.Valid;
-
 
 @Entity
-	public class Customer extends User implements Serializable{
+public class Customer extends User implements Serializable {
 
+	private static final long serialVersionUID = -3794885616176050983L;
 
-		private static final long serialVersionUID = -3794885616176050983L;
-		
-		
-		@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-		private List<ProductOrder> orders;
-		
-		public Customer(){
-			super();
-		}
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<ProductOrder> orders;
 
-		
-		
-		public List<ProductOrder> getOrders() {
-			return orders;
-		}
+	public Customer() {
+		super();
+	}
 
-		public void addOrders(ProductOrder order) {
-			orders.add(order);
-		}
+	public List<ProductOrder> getOrders() {
+		return orders;
+	}
 
-		
-		
+	public void addOrders(ProductOrder order) {
+		orders.add(order);
+	}
+
 }

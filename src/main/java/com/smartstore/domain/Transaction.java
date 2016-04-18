@@ -14,7 +14,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
 public class Transaction implements Serializable {
 
@@ -22,7 +21,7 @@ public class Transaction implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long transactionId;
-	
+
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<CreditCard> creditCards;
 	@Temporal(TemporalType.DATE)
@@ -66,5 +65,4 @@ public class Transaction implements Serializable {
 		this.order = order;
 	}
 
-	
 }

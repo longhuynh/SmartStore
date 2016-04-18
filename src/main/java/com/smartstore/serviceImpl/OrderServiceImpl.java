@@ -16,21 +16,20 @@ import com.smartstore.repository.OrderRepository;
 import com.smartstore.service.CustomerService;
 import com.smartstore.service.OrderService;
 
-
 @Service
 @Transactional
 public class OrderServiceImpl implements OrderService {
-	
+
 	@Autowired
 	private CustomerService customerService;
-	
+
 	@Autowired
 	private OrderRepository orderRepository;
-	
+
 	@Transactional(readOnly = false)
-	public ProductOrder createOrder(Cart cart, Principal principal){
+	public ProductOrder createOrder(Cart cart, Principal principal) {
 		ProductOrder productOrder = new ProductOrder();
-		for(Entry<Product, Integer> line : cart.getProducts().entrySet()){
+		for (Entry<Product, Integer> line : cart.getProducts().entrySet()) {
 			productOrder.addOrderDetail(new OrderDetail(line.getKey(), line.getValue()));
 		}
 		productOrder.setOrderDate(new Date());
@@ -42,7 +41,5 @@ public class OrderServiceImpl implements OrderService {
 	public ProductOrder store(ProductOrder productOrder) {
 		return orderRepository.save(productOrder);
 	}
-
-
 
 }

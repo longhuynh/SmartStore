@@ -24,18 +24,18 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue
 	private Long productId;
-	@NotEmpty(message="{ProductName.validation}")
+	@NotEmpty(message = "{ProductName.validation}")
 	private String productName;
-	@NotEmpty(message="{ProductDescription.validation}")
+	@NotEmpty(message = "{ProductDescription.validation}")
 	private String description;
 	@ManyToOne
 	@Valid
 	private Category category;
-	@NotNull (message="{UnitPrice.validation}")
+	@NotNull(message = "{UnitPrice.validation}")
 	private BigDecimal unitPrice;
 	@JsonIgnore
 	@Transient
@@ -45,7 +45,7 @@ public class Product implements Serializable {
 	private String productApproval;
 	private String productCondition;
 	private String productPath;
-	//status values active,locked ,exhausted
+	// status values active,locked ,exhausted
 	private String Status;
 	@Transient
 	private Vendor vendor;
@@ -156,25 +156,25 @@ public class Product implements Serializable {
 	}
 
 	@Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (object == null || getClass() != object.getClass()) {
-            return false;
-        }
-        Product other = (Product) object;
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null || getClass() != object.getClass()) {
+			return false;
+		}
+		Product other = (Product) object;
 
-        return (this.getProductId() == other.getProductId());
-    }
+		return (this.getProductId() == other.getProductId());
+	}
 
-    @Override
-    public int hashCode() {
-        return new org.apache.commons.lang.builder.HashCodeBuilder().append(this.getProductId()).toHashCode();
-    }
+	@Override
+	public int hashCode() {
+		return new org.apache.commons.lang.builder.HashCodeBuilder().append(this.getProductId()).toHashCode();
+	}
 
-    @Override
-    public String toString() {
-        return this.productId + " " + this.productName;
-    }
+	@Override
+	public String toString() {
+		return this.productId + " " + this.productName;
+	}
 }
