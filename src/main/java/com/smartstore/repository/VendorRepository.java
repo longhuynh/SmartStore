@@ -8,7 +8,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import edu.mum.eselling.domain.Vendor;
+import com.smartstore.domain.Vendor;
+
 
 @Repository
 public interface VendorRepository extends CrudRepository<Vendor, Long> {

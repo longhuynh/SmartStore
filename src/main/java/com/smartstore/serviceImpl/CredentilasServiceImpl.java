@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.mum.eselling.domain.Credentials;
-import edu.mum.eselling.repository.CredentialRepository;
-import edu.mum.eselling.service.CredentialsService;
+import com.smartstore.domain.Credentials;
+import com.smartstore.repository.CredentialRepository;
+import com.smartstore.service.CredentialsService;
+
 
 
 @Service

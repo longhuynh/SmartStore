@@ -18,6 +18,7 @@ import com.smartstore.domain.Product;
 import com.smartstore.service.CustomerService;
 import com.smartstore.service.ProductService;
 
+
 @Controller
 public class CartController {
 	// private Logger logger = LoggerFactory.getLogger(CartController.class);

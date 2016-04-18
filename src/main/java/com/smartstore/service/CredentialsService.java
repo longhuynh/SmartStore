@@ -2,8 +2,9 @@ package com.smartstore.service;
 
 import java.util.List;
 
-import edu.mum.eselling.domain.Credentials;
-import edu.mum.eselling.domain.Product;
+import com.smartstore.domain.Credentials;
+
+
 
 public interface CredentialsService {
 

@@ -15,31 +15,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/*import com.smartstore.service.CategoryService;
+import com.smartstore.service.CategoryService;
 import com.smartstore.service.ProductService;
-*/
+
 
 
 @Controller
 public class HomeController {
 
-/*	@Autowired
+	@Autowired
 	private ProductService productService;
 
 	@Autowired
 	private CategoryService categoryService;
-*/
+
 
 	@RequestMapping(value={"/","/welcome"})
 	public String welcome(Model model) {
 
 		return "welcome";
 	}
-	/* @ModelAttribute
+	 @ModelAttribute
 		public void init(Model model){
 			model.addAttribute("products", productService.findApprovedProducts());
 			model.addAttribute("categories", categoryService.findAll());
 		}
-*/
+
 
 }

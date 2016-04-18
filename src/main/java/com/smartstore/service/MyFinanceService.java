@@ -2,7 +2,8 @@ package com.smartstore.service;
 
 import java.util.List;
 
-import edu.mum.eselling.domain.MyFinance;
+import com.smartstore.domain.MyFinance;
+
 
 public interface MyFinanceService {
 	
