@@ -13,7 +13,7 @@
 				<div class="span10 right">
 					<div class="social-strip">
 						<ul>
-							<li><a href="#" class="account">My Account</a></li>						
+							<li><a href="login" class="account">My Account</a></li>						
 							<li><a href="#" class="check">Checkout</a></li>
 						</ul>
 					</div>

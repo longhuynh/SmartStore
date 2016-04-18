@@ -54,13 +54,11 @@ public class SignupController {
 
 	@RequestMapping(value = "/CustomerSignUp", method = RequestMethod.GET)
 	public String customerSignup(@ModelAttribute Customer customer) {
-
 		return "CustomerSignUp";
 	}
 
 	@RequestMapping(value = "/AddNewAdmin", method = RequestMethod.GET)
 	public String adminSignup(@ModelAttribute Customer customer) {
-
 		return "AdminAdd";
 	}
 
@@ -91,17 +89,6 @@ public class SignupController {
 			if (f.getCreditCardNo().equals(customer.getCreditCard().getCreditCardNo())) {
 				found = 1;
 			}
-			/*
-			 * if(f.getCreditCardType() != customer
-			 * .getCreditCard().getCreditCardType() || f.getExpMonth() !=
-			 * customer .getCreditCard().getExpMonth() || f.getExpYear() !=
-			 * customer .getCreditCard().getExpYear() || f.getSecurityCode() !=
-			 * customer .getCreditCard().getSecurityCode() || f.getNameOnCard()
-			 * .equals(customer.getCreditCard().getNameOnCard()))
-			 * 
-			 * model.addAttribute("wrongCreditCard", "True"); return
-			 * "CustomerSignUp";
-			 */
 
 			if (found == 0) {
 				model.addAttribute("nonexistent", "true");
@@ -165,18 +152,7 @@ public class SignupController {
 			if (f.getCreditCardNo().equals(customer.getCreditCard().getCreditCardNo())) {
 				found = 1;
 			}
-			/*
-			 * if(f.getCreditCardType() != customer
-			 * .getCreditCard().getCreditCardType() || f.getExpMonth() !=
-			 * customer .getCreditCard().getExpMonth() || f.getExpYear() !=
-			 * customer .getCreditCard().getExpYear() || f.getSecurityCode() !=
-			 * customer .getCreditCard().getSecurityCode() || f.getNameOnCard()
-			 * .equals(customer.getCreditCard().getNameOnCard()))
-			 * 
-			 * model.addAttribute("wrongCreditCard", "True"); return
-			 * "CustomerSignUp";
-			 */
-
+			
 			if (found == 0) {
 				model.addAttribute("nonexistent", "true");
 				return "CustomerSignUp";
@@ -246,18 +222,7 @@ public class SignupController {
 			if (f.getCreditCardNo().equals(vendor.getCreditCard().getCreditCardNo())) {
 				found = 1;
 			}
-			/*
-			 * if(f.getCreditCardType() != vendor
-			 * .getCreditCard().getCreditCardType() || f.getExpMonth() != vendor
-			 * .getCreditCard().getExpMonth() || f.getExpYear() != vendor
-			 * .getCreditCard().getExpYear() || f.getSecurityCode() != vendor
-			 * .getCreditCard().getSecurityCode() || !f.getNameOnCard()
-			 * .equals(vendor.getCreditCard().getNameOnCard()))
-			 * 
-			 * model.addAttribute("wrongCreditCard", "True");
-			 * 
-			 * return "VendorSignUp"; }
-			 */
+
 			if (found == 0) {
 				model.addAttribute("nonexistent", "true");
 				return "VendorSignUp";
@@ -309,7 +274,6 @@ public class SignupController {
 		model.addAttribute("creditType", creditType);
 		model.addAttribute("categories", categoryService.findAll());
 		model.addAttribute("products", productService.findApprovedProducts());
-
 	}
 
 	public String getHashPassword(String password) {
@@ -317,5 +281,4 @@ public class SignupController {
 		String hashedPassword = passwordEncoder.encode(password);
 		return hashedPassword;
 	}
-
 }

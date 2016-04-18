@@ -52,7 +52,6 @@
 
 	<definition name="CustomerSignUp" extends="baseLayout">
 		<put-attribute name="title" value="Max Shop" />
-		<!-- <put-attribute name="heading" value="My Items" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/CustomerSignUp.jsp" />
 	</definition>
 	<definition name="VendorSignUp" extends="baseLayout">
@@ -67,7 +66,6 @@
 
 	<definition name="randomSearch" extends="baseLayout">
 		<put-attribute name="title" value="My Home" />
-		<put-attribute name="heading" value="Good Morning" />
 		<put-attribute name="body" value="/WEB-INF/jsp/randomSearch.jsp" />
 	</definition>
 
@@ -80,41 +78,30 @@
 
 	<definition name="pendingProducts" extends="adminLayout">
 		<put-attribute name="title" value="PendingProducts" />
-		<!-- <put-attribute name="heading" value="PendingProducts" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/pendingProducts.jsp" />
 	</definition>
 	<definition name="VendorPage" extends="venderLayout">
 		<put-attribute name="title" value="Vendor" />
-		<!-- <put-attribute name="heading" value="Vendor" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/VendorPage.jsp" />
 	</definition>
 
 	<definition name="addProduct" extends="venderLayout">
 		<put-attribute name="title" value="Vendor" />
-		<!-- <put-attribute name="heading" value="Vendor" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/addProduct.jsp" />
 	</definition>
 
 	<definition name="AdminPage" extends="adminLayout">
 		<put-attribute name="title" value="Admin" />
-		<!-- <put-attribute name="heading" value="Admin" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/AdminPage.jsp" />
 	</definition>
 
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
-		<!-- <put-attribute name="heading" value="Login" /> -->
-		<!-- <put-attribute name="tagline" value="Enter your Credentials" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
 
 	<definition name="myProducts" extends="venderLayout">
 		<put-attribute name="title" value="Payment" />
-		<!-- <put-attribute name="heading" value="Payment" /> -->
-		<!-- <put-attribute name="tagline" value="Enter credit card details" /> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/myProducts.jsp" />
 	</definition>
-
-
-
 </tiles-definitions>
