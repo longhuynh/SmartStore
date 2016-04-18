@@ -23,10 +23,9 @@ public class HomeController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping(value = { "/", "/welcome" })
-	public String welcome(Model model) {
-
-		return "welcome";
+	@RequestMapping(value = { "/", "/index" })
+	public String index(Model model) {
+		return "index";
 	}
 
 	@ModelAttribute

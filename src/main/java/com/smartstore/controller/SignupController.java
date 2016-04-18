@@ -129,7 +129,7 @@ public class SignupController {
 		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + customer.getFirstName(), customer.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and purchase from our site. ");
-		return "redirect:/welcome";
+		return "redirect:/index";
 	}
 
 	// Vendor Signup
@@ -210,7 +210,7 @@ public class SignupController {
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + vendor.getFirstName(), vendor.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and Post your Products in  our site. ");
 
-		return "redirect:/welcome";
+		return "redirect:/index";
 	}
 
 	@ModelAttribute

@@ -59,7 +59,7 @@ public class LogInController {
 		SecurityContextHolder.getContext().setAuthentication(null);
 		status.setComplete();
 		session.invalidate();
-		return "redirect:/welcome";
+		return "redirect:/index";
 
 	}
 

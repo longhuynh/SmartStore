@@ -219,7 +219,7 @@
 
 			<ul class="footer_menu">
 
-				<li><a href="/eselling/welcome" title="Home">Home</a></li>
+				<li><a href="/smartstore/index" title="Home">Home</a></li>
 
 
 
