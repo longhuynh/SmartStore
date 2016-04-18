@@ -12,23 +12,5 @@ public class EmailSettings {
 		props.put("mail.smtp.starttls.enable", "true"); // enable STARTTLS
 
 		return props;
-
 	}
-
-	// public static Authenticator getEmailAuthentication(){
-	// final String fromEmail = "pmesellingroup3@gmail.com"; //requires valid
-	// gmail id
-	// final String password = "lachimachidoo"; // correct password for gmail id
-	//
-	// //create Authenticator object to pass in Session.getInstance argument
-	// Authenticator auth = new Authenticator() {
-	// //override the getPasswordAuthentication method
-	// protected PasswordAuthentication getPasswordAuthentication() {
-	// return new PasswordAuthentication(fromEmail, password);
-	// }
-	// };
-	// return auth;
-	//
-	// }
-
 }

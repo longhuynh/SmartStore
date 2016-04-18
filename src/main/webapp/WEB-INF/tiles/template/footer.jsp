@@ -1,47 +1,94 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
   <div id="footer">
-		<div id="footer_details_menu">
-			<ul>
-
-				<li style="color: #232f3e;">HEAD OFFICE</li>
-				<li>Fairfield, IA 52557</li>
-				<li>1000 N 4th st</li>
-				<li>Tel: +641 562-2564 / 5 / 6</li>
-				<li>Fax: +641 333-6521</li>
-				<li>E-mail: inquiry@smartstoresystem.com</li>
-
-			</ul>
-
-
-
-			<ul class="footer_menu">
-
-				<li><a href="<spring:url value="/"/>" >Home</a></li>
-
-			</ul>
-
-
-			<ul class="footer_menu" style="border: none;">
-
-				<li><a href="#" title="Terms and Conditions">Terms and
-						Conditions</a></li>
-
-			</ul>
-
-			<ul class="footer_menu" style="border: none;">
-
-				<li><a href="skype:smartstore.system?call"
-					onclick="return skypeCheck();" title="Support Center">Support
-						Center</a></li>
-
-
-			</ul>
-
-			<ul class="footer_menu" style="border: none;">
-
-				<li><a href="#" title="Contacts">Contacts</a></li>
-
-			</ul>
-			<div class="clear"></div>
+			<div class="shipping-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<div class="shipping">
+						<p>
+							<span>FREE SHIPPING </span> Offered by MAXSHOP - lorem ipsum
+							dolor sit amet mauris accumsan vitate odio tellus
+						</p>
+						<a href="#" class="button">Learn more</a>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
+
+	<div class="footer-wrap">
+		<div class="container">
+			<div class="row">
+
+				<div class="footer clearfix">
+
+					<div class="span3">
+						<div class="widget">
+							<h3>Customer Service</h3>
+							<ul>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Delivery Information</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="span3">
+						<div class="widget">
+							<h3>Information</h3>
+							<ul>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Delivery Information</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Terms & Conditions</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="span3">
+						<div class="widget">
+							<h3>My Account</h3>
+							<ul>
+								<li><a href="#">My Account</a></li>
+								<li><a href="#">Order History</a></li>
+								<li><a href="#">Wish List</a></li>
+								<li><a href="#">Newsletter</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="span3">
+						<div class="widget">
+							<h3>Contact us</h3>
+							<ul>
+								<li>support@maxshop.com</li>
+								<li>+38649 123 456 789 00</li>
+								<li>Lorem ipsum address street no 24 b41</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<footer class="clearfix">
+					<div class="span5">
+						<p>© 2013 Maxshop Design, All Rights Reserved</p>
+					</div>
+					<div class="span2 back-top">
+						<a href="#"> <img src="resources/images/back.png" alt=""></a>
+					</div>
+					<div class="span5">
+						<div class="social-icon">
+							<a class="rss" href=""></a> <a class="twet" href=""></a> <a
+								class="fb" href=""></a> <a class="google" href=""></a> <a
+								class="pin" href=""> </a>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
 	</div>

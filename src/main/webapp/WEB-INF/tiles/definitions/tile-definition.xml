@@ -51,20 +51,18 @@
 	
 
  	<definition name="index" extends="baseLayout">
-		<put-attribute name="title" value="E-selling" />
-<!-- 		<put-attribute name="heading" value="E-Selling -Heading" /> -->
+		<put-attribute name="title" value="Max Shop" />
  		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
 	</definition>
 		
 		
 	<definition name="CustomerSignUp" extends="baseLayout">
-		<put-attribute name="title" value="Eselling" />
+		<put-attribute name="title" value="Max Shop" />
 		<!-- <put-attribute name="heading" value="My Items" /> -->
  		<put-attribute name="body" value="/WEB-INF/jsp/CustomerSignUp.jsp" />
 	</definition>
 	<definition name="VendorSignUp" extends="baseLayout">
-		<put-attribute name="title" value="E-Selling" />
-		<!-- <put-attribute name="heading" value="E-Selling -Heading" /> -->
+		<put-attribute name="title" value="Max Shop" />
  		<put-attribute name="body" value="/WEB-INF/jsp/VendorSignUp.jsp" />
 	</definition>
 	

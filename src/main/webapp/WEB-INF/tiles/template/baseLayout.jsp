@@ -6,108 +6,453 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- META TAGS -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
 
-	
-	
+<!-- Title -->
+<title>Max Shop</title>
+
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,600,800'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- Style Sheet-->
+<link rel="stylesheet" href="resources/css/tooltipster.css"
+	type="text/css">
+<link href="resources/css/ie.css" rel="stylesheet" media="all"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/bootstrap.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="resources/css/responsive.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/prettyPhoto.css"
+	type="text/css">
+
+
+<!-- favicon -->
+<link rel="shortcut icon" href="resources/images/favicon.jpg">
+
+<!-- Include the HTML5 shiv print polyfill for Internet Explorer browsers 8 and below -->
+<!--[if lt IE 10]><script src="resources/js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 </head>
-<title>Online Shopping</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style type="text/css"></style>
-<link href="resources/css/all.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
-
 <body>
-<div class="container">
-		<div id="header">
-			<div class="right"
-				style="padding-right: 16px; padding-top: 12px; width: 115px; height: 40px; float: right; margin-top: -59px; margin-right: 30px;">
-				<ul>
-					<li class="right"><a href="#"> <img align="right"
-							alt="Spanish" src="resources/images/Sp.png"
-							style="margin-right: -20px" title="Español" class="drop5">
-					</a></li>
-					<li class="right"><a href="#"> <img align="right"
-							alt="French" src="resources/images/Fr.png"
-							style="margin-right: 6px" title="Français" class="drop5">
-					</a></li>
-					<li class="right"><a href="#"> <img align="right"
-							alt="English" src="resources/images/UK1.png"
-							style="padding-right: 5px; opacity: 1;" title="English"
-							class="drop5">
-					</a></li>
-				</ul>
-			</div>
-			<span class="logo left"> <a href="/smartstore/"> <img
-					alt="E-Selling System" title="E-Selling System"
-					src="resources/images/logo.png" />
-			</a>
-			</span>
+	<!-- HEADER -->
+	<div class="header-bar">
+		<div class="container">
+			<div class="row">
+				<div class="pric-icon span2">
+					<a href="#" class="active">&#x20ac;</a> <a href="#">&#xa3;</a> <a
+						href="#">&#36;</a>
+				</div>
 
-			<div class="right" id="share" style="width: 650px">
-				<ul class="nav">
-				<form:form  action="/smartstore/productsearch" method="get">
-					<div class="styled-select">
-						<select id="categoryId" name="categoryId">
-						 <c:forEach var="category" items="${categories}">
-							<option value="${category.categoryId}">${category.categoryName}</option>
-						 </c:forEach>
-						</select>
+				<div class="span10 right">
+					<div class="social-strip">
+						<ul>
+							<li><a href="#" class="account">My Account</a></li>						
+							<li><a href="#" class="check">Checkout</a></li>
+						</ul>
 					</div>
-					<li id="search">
-						
-							<input type="text" name="search_text" id="search_text" placeholder="search a product..." /> 
-							<input type="submit" name="search_button" id="search_button" value="Search"/>
-						
-					</li>
-					</form:form>
-				</ul>
 
-				<br class="clear" />
-				<div class="menu">
-					<ul>
-						<li><a href="<spring:url value="/login" />">Sign In</a></li>
-						
+					<div class="languages">
+						<a href="#" class="english active"><img
+							src="resources/images/english.png" alt=""></a> <a href="#"
+							class="german"><img src="resources/images/german.png" alt=""></a>
+						<a href="#" class="japan"><img
+							src="resources/images/japan.png" alt=""></a> <a href="#"
+							class="turkish"><img src="resources/images/turkish.png"
+							alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-						 <li><a href=""><pre id="separator">   |   </pre></a></li> 
-						
-						<li><a href="<spring:url value="/VendorSignUp" />">New Vendor?</a></li>
-						 <li><a href="#"><pre id="separator">   |   </pre></a></li> 
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
 
-						<li><a href="<spring:url value="/CustomerSignUp" />">New Customer?</a></li>
-					</ul>
-					<br style="clear: left" />
+				<div class="span5">
+					<div class="logo">
+						<a href="index.html"><img src="resources/images/logo.png"
+							alt=""></a>
+						<h1>
+							<a href="index.html">Welcom to<span>
+									Max Shop </span> USA
+							</a>
+						</h1>
+					</div>
+				</div>
+
+				<div class="span5">
+					<form class="search-form">
+						<input type="text" placeholder="Type and hit enter"> <input
+							type="submit" value="">
+					</form>
+				</div>
+
+				<div class="span2">
+					<div class="cart">
+						<ul>
+							<li class="first"><a href="#"></a><span></span></li>
+							<li>0 item(s) - $0.00</li>
+						</ul>
+					</div>
 				</div>
 
 			</div>
-
 		</div>
+	</div>
 
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<nav class="desktop-nav">
+						<ul class="clearfix">
+							<li><a href="#">BAGS</a></li>
+							<li><a href="#">Jackets</a></li>
+							<li><a href="#">ACCESORIES </a></li>
+							<li><a href="#">CATEGORIES</a></li>
+							<li><a href="#">Manufacters</a></li>
+							<li><a href="#">Sale </a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Dresses</a></li>
+							<li><a href="#">Jewelry</a></li>
+							<li><a href="#">ShOES</a></li>
+							<li><a href="#">Shirts</a></li>
 
-		
-			<%-- <h1>
-				<tiles:insertAttribute name="heading" />
-			</h1> --%>
-			<p>
-				<tiles:insertAttribute name="tagline" />
-			</p>
+						</ul>
+					</nav>
+
+					<select>
+						<option>BAGS</option>
+						<option>Jackets</option>
+						<option>ACCESORIES</option>
+						<option>CATEGORIES</option>
+						<option>Manufacters</option>
+						<option>Sale</option>
+						<option>Blog</option>
+						<option>Dresses</option>
+						<option>Jewelry</option>
+						<option>ShOES</option>
+						<option>Shirts</option>
+					</select>
+				</div>
+			</div>
 		</div>
+	</header>
+	<!-- HEADER -->
 
-		<div class="row">
-			<tiles:insertAttribute name="body" />
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="row ">
+
+				<!-- SLIDER -->
+				<div class="span9 slider">
+					<div class="slider-slides">
+						<div class="slides">
+							<a href="#"><img src="resources/images/slide1.png" alt=""></a>
+							<div class="overlay">
+								<h1>AWESOME FURNITUR</h1>
+								<p>
+									<span>50%</span> OFF <br /> TRENDY <span>DESIGNS</span>
+								</p>
+							</div>
+						</div>
+						<div class="slides">
+							<a href="#"><img src="resources/images/slide2.jpg" alt=""></a>
+							<div class="overlay">
+								<h1>LATEST FASHION</h1>
+								<p>
+									<span>30%</span> OFF <br /> TRENDY <span>DESIGNS</span>
+								</p>
+							</div>
+						</div>
+						<div class="slides">
+							<a href="#"><img src="resources/images/slide3.jpg" alt=""></a>
+							<div class="overlay">
+								<h1>AWESOME FURNITUR</h1>
+								<p>
+									<span>50%</span> OFF <br /> TRENDY <span>DESIGNS</span>
+								</p>
+							</div>
+						</div>
+						<div class="slides">
+							<a href="#"><img src="resources/images/slide4.jpg" alt=""></a>
+							<div class="overlay">
+								<h1>LATEST FASHION</h1>
+								<p>
+									<span>30%</span> OFF <br /> TRENDY <span>DESIGNS</span>
+								</p>
+							</div>
+						</div>
+					</div>
+					<a href="#" class="next"></a> <a href="#" class="prev"></a>
+					<div class="slider-btn"></div>
+				</div>
+				<!-- SLIDER -->
+
+				<!-- SPECIAL-OFFER -->
+				<div class="span3">
+					<div class="offers">
+						<figure>
+							<a href="#"><img src="resources/images/offers.png" alt=""></a>
+							<div class="overlay">
+								<h1>
+									SUMMER<span> COLLECTION 35% OFF</span> <small> -
+										Limited Offer</small>
+								</h1>
+							</div>
+						</figure>
+					</div>
+
+					<div class="offers">
+						<figure>
+							<a href="#"><img src="resources/images/offers2.png" alt=""></a>
+							<div class="overlay">
+								<h1>
+									SUMMER<span> COLLECTION 35% OFF</span> <small> -
+										Limited Offer</small>
+								</h1>
+							</div>
+						</figure>
+					</div>
+				</div>
+				<!-- SPECIAL-OFFER -->
+
+			</div>
 		</div>
+	</div>
 
-		<div class="footer">
-			<tiles:insertAttribute name="footer" />
+	<!-- PRODUCT-OFFER -->
+	<div class="product_wrap">
+		<div class="container">
+			<div class="row heading-wrap">
+				<div class="span12 heading">
+					<h2>
+						Featured Products <span></span>
+					</h2>
+				</div>
+			</div>
+			<div class="row">
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom prettyPhoto"></a>
+								<a href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
+							<div class="overlay">
+								<a href="http://placehold.it/270x186" class="zoom"></a> <a
+									href="#" class="link"></a>
+							</div>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span>
+							<h4>Brown Wood Chair</h4>
+							<div class="icon">
+								<a href="#" class="one tooltip" title="Add to wish list"></a> <a
+									href="#" class="two tooltip " title="Add to cart"></a> <a
+									href="#" class="three tooltip" title="Add to compare"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
 		</div>
+	</div>
+	<!-- PRODUCT-OFFER -->
 
+
+
+	<!-- FOOTER -->
+	<tiles:insertAttribute name="footer" />
+	<!-- FOOTER -->
+
+
+	<!-- Scripts -->
+	<script src="resources/js/jquery-1.9.1.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="resources/js/jquery.cycle.all.js"></script>
+	<script src="resources/js/modernizr.custom.17475.js"></script>
+	<script src="resources/js/jquery.elastislide.js"></script>
+	<script src="resources/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+	<script src="resources/js/jquery.selectBox.js"></script>
+	<script src="resources/js/jquery.tooltipster.min.js"></script>
+	<script src="resources/js/jquery.prettyPhoto.js"></script>
+	<script src="resources/js/custom.js"></script>
 </body>
 </html>
+
+
