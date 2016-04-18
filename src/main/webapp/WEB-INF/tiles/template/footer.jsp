@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-  <div id="footer">
-			<div class="shipping-wrap">
+
+<div id="footer">
+	<div class="shipping-wrap">
 		<div class="container">
 			<div class="row">
 				<div class="span12">
@@ -91,4 +92,4 @@
 			</div>
 		</div>
 	</div>
-	</div>
+</div>

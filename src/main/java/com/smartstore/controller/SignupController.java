@@ -58,6 +58,84 @@ public class SignupController {
 		return "CustomerSignUp";
 	}
 
+	@RequestMapping(value = "/AddNewAdmin", method = RequestMethod.GET)
+	public String adminSignup(@ModelAttribute Customer customer) {
+
+		return "AdminAdd";
+	}
+
+	@RequestMapping(value = "/AdminAdd", method = RequestMethod.POST)
+	public String processAdminSignUp(@Valid @ModelAttribute Customer customer, BindingResult result, Model model,
+			RedirectAttributes redirectAttributes) {
+		if (result.hasErrors()) {
+			return "AdminAdd";
+		}
+
+		List<Credentials> userName = credentialService.getAll();
+		customer.getCredentials().getUsername().toLowerCase();
+		for (Credentials c : userName) {
+			if (c.getUsername().equals(customer.getCredentials().getUsername())) {
+				model.addAttribute("username", "True");
+				return "AdminAdd";
+			}
+		}
+		if (!(customer.getCredentials().getPassword().equals(customer.getCredentials().getVerifyPassword()))) {
+			model.addAttribute("password", "true");
+			return "AdminAdd";
+		}
+
+		// Credit card Information check
+		List<MyFinance> finance = myFinanceService.getAll();
+		int found = 0;
+		for (MyFinance f : finance) {
+			if (f.getCreditCardNo().equals(customer.getCreditCard().getCreditCardNo())) {
+				found = 1;
+			}
+			/*
+			 * if(f.getCreditCardType() != customer
+			 * .getCreditCard().getCreditCardType() || f.getExpMonth() !=
+			 * customer .getCreditCard().getExpMonth() || f.getExpYear() !=
+			 * customer .getCreditCard().getExpYear() || f.getSecurityCode() !=
+			 * customer .getCreditCard().getSecurityCode() || f.getNameOnCard()
+			 * .equals(customer.getCreditCard().getNameOnCard()))
+			 * 
+			 * model.addAttribute("wrongCreditCard", "True"); return
+			 * "CustomerSignUp";
+			 */
+
+			if (found == 0) {
+				model.addAttribute("nonexistent", "true");
+				return "AdminAdd";
+			}
+		}
+
+		customer.getCredentials().setPassword(getHashPassword(customer.getCredentials().getPassword()));
+		customer.setPassword(getHashPassword(customer.getCredentials().getPassword()));
+
+		CustomerService.addNewCustomer(customer);
+		redirectAttributes.addFlashAttribute("successful", "true");
+
+		// send email
+		final String fromEmail = "pmesellingroup3@gmail.com"; // requires valid
+																// gmail id
+		final String password = "lachimachidoo"; // correct password for gmail
+													// id
+		final String toEmail = customer.getEmail();
+
+		// create Authenticator object to pass in Session.getInstance argument
+		Authenticator auth = new Authenticator() {
+			// override the getPasswordAuthentication method
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(fromEmail, password);
+			}
+		};
+
+		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
+		EmailUtil.sendEmail(session, toEmail, " Welcome " + customer.getFirstName(), customer.getFirstName()
+				+ "you have successfully signedup to E-Selling. You can now sign in and purchase from our site. ");
+		return "redirect:/welcome";
+	}
+
 	// customer signup
 
 	@RequestMapping(value = "/CustomerSignUp", method = RequestMethod.POST)
@@ -129,7 +207,7 @@ public class SignupController {
 		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + customer.getFirstName(), customer.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and purchase from our site. ");
-		return "redirect:/index";
+		return "redirect:/welcome";
 	}
 
 	// Vendor Signup
@@ -210,7 +288,7 @@ public class SignupController {
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + vendor.getFirstName(), vendor.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and Post your Products in  our site. ");
 
-		return "redirect:/index";
+		return "redirect:/welcome";
 	}
 
 	@ModelAttribute
