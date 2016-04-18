@@ -20,32 +20,31 @@ public class CreditCard implements Serializable {
 	@GeneratedValue
 	private long creditCardId;
 
-	@NotNull(message="{NotEmpty.CreditCard.number.validation}")
-	//@Pattern(regexp="[2-9][0-9]{15}", message="{Pattern.CreditCard.number.validation}")
-	@Pattern(regexp="[1-9][0-9]{15}", message="{Pattern.CreditCard.number.validation}")
+	@NotNull(message = "{NotEmpty.CreditCard.number.validation}")
+	// @Pattern(regexp="[2-9][0-9]{15}",
+	// message="{Pattern.CreditCard.number.validation}")
+	@Pattern(regexp = "[1-9][0-9]{15}", message = "{Pattern.CreditCard.number.validation}")
 	private String creditCardNo;
 	private String creditCardType;
-	@NotNull(message="{NotEmpty.CreditCard.expireMonth.validation}")
+	@NotNull(message = "{NotEmpty.CreditCard.expireMonth.validation}")
 	private Integer expMonth;
-	@NotNull(message="{NotEmpty.CreditCard.expireYear.validation}")
-	private  Integer expYear;
-	@NotNull(message="{NotEmpty.CreditCard.cvv.validation}")
-	@Range(min=100, max=999) 
-	private  Integer securityCode;
+	@NotNull(message = "{NotEmpty.CreditCard.expireYear.validation}")
+	private Integer expYear;
+	@NotNull(message = "{NotEmpty.CreditCard.cvv.validation}")
+	@Range(min = 100, max = 999)
+	private Integer securityCode;
 
-	@NotEmpty(message="{NotEmpty.CreditCard.name.validation}")
+	@NotEmpty(message = "{NotEmpty.CreditCard.name.validation}")
 	private String nameOnCard;
 	private BigDecimal creditLimit;
 
 	public CreditCard() {
 		creditLimit = new BigDecimal(50_000);
 	}
-	
 
 	public BigDecimal getCreditLimit() {
 		return creditLimit;
 	}
-
 
 	public void setCreditLimit(BigDecimal creditLimit) {
 		this.creditLimit = creditLimit;
@@ -58,7 +57,6 @@ public class CreditCard implements Serializable {
 	public void setCreditCardType(String creditCardType) {
 		this.creditCardType = creditCardType;
 	}
-
 
 	public String getNameOnCard() {
 		return nameOnCard;
@@ -83,6 +81,7 @@ public class CreditCard implements Serializable {
 	public void setCreditCardNo(String creditCardNo) {
 		this.creditCardNo = creditCardNo;
 	}
+
 	public Integer getExpMonth() {
 		return expMonth;
 	}
@@ -106,6 +105,5 @@ public class CreditCard implements Serializable {
 	public void setSecurityCode(Integer securityCode) {
 		this.securityCode = securityCode;
 	}
-	
-	
+
 }

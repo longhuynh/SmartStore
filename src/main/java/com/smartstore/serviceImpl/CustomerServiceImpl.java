@@ -9,29 +9,24 @@ import com.smartstore.repository.CredentialRepository;
 import com.smartstore.repository.CustomerRepository;
 import com.smartstore.service.CustomerService;
 
-
 @Service
 @Transactional
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-    private  CustomerRepository customerRepository;
-	
-	
-	@Autowired 
-	private CredentialRepository credentialRepository;
-		
+	private CustomerRepository customerRepository;
 
-	
-	public void addNewCustomer(Customer customer){
+	@Autowired
+	private CredentialRepository credentialRepository;
+
+	public void addNewCustomer(Customer customer) {
 		credentialRepository.save(customer.getCredentials());
 		customerRepository.save(customer);
 	}
-	
-public Customer getCustomerByUserName(String name){
-		
+
+	public Customer getCustomerByUserName(String name) {
+
 		return customerRepository.findCustomerByUserName(name);
 	}
-	
-}
 
+}

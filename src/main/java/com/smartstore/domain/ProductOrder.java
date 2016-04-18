@@ -35,10 +35,8 @@ public class ProductOrder implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Customer customer;
 	@JoinColumn(name = "order_id")
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private final List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
-	
-
 
 	public ProductOrder() {
 		super();
@@ -76,7 +74,7 @@ public class ProductOrder implements Serializable {
 		this.orderDate = orderDate;
 	}
 
-    public Customer getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
@@ -85,47 +83,48 @@ public class ProductOrder implements Serializable {
 	}
 
 	public List<OrderDetail> getOrderDetails() {
-        return this.orderDetails;
-    }
-	
-	public int getTotalNumberOfProducts() {
-        int total = 0;
-        for (OrderDetail orderDetail : getOrderDetails()) {
-            total += orderDetail.getQuantity();
-        }
-        return total;
-    }
-	
-	public void clear(){
-		
+		return this.orderDetails;
 	}
-	
-	/**
-     * Update the order details and update the total price. If the quantity is 0 or less the order detail is removed from the list.
-     */
-    public void updateOrderDetails() {
-        BigDecimal total = BigDecimal.ZERO;
-        Iterator<OrderDetail> details = this.orderDetails.iterator();
-        while (details.hasNext()) {
-            OrderDetail detail = details.next();
-            if (detail.getQuantity() <= 0) {
-                details.remove();
-            } else {
-                total = total.add(detail.getPrice());
 
-            }
-        }
-        total.setScale(2, RoundingMode.HALF_UP);
-        this.orderPrice = total;
-    }
-    
-    public void addOrderDetail(OrderDetail detail) {
-        if (this.orderDetails.add(detail)) {
-            if (this.orderPrice == null) {
-                this.orderPrice = detail.getPrice();
-            } else {
-                this.orderPrice = this.orderPrice.add(detail.getPrice());
-            }
-        }
-    }
+	public int getTotalNumberOfProducts() {
+		int total = 0;
+		for (OrderDetail orderDetail : getOrderDetails()) {
+			total += orderDetail.getQuantity();
+		}
+		return total;
+	}
+
+	public void clear() {
+
+	}
+
+	/**
+	 * Update the order details and update the total price. If the quantity is 0
+	 * or less the order detail is removed from the list.
+	 */
+	public void updateOrderDetails() {
+		BigDecimal total = BigDecimal.ZERO;
+		Iterator<OrderDetail> details = this.orderDetails.iterator();
+		while (details.hasNext()) {
+			OrderDetail detail = details.next();
+			if (detail.getQuantity() <= 0) {
+				details.remove();
+			} else {
+				total = total.add(detail.getPrice());
+
+			}
+		}
+		total.setScale(2, RoundingMode.HALF_UP);
+		this.orderPrice = total;
+	}
+
+	public void addOrderDetail(OrderDetail detail) {
+		if (this.orderDetails.add(detail)) {
+			if (this.orderPrice == null) {
+				this.orderPrice = detail.getPrice();
+			} else {
+				this.orderPrice = this.orderPrice.add(detail.getPrice());
+			}
+		}
+	}
 }

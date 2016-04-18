@@ -21,89 +21,80 @@ import com.smartstore.service.CustomerService;
 import com.smartstore.service.ProductService;
 import com.smartstore.service.VendorService;
 
-
-
 @Controller
 public class LogInController {
-	
+
 	@Autowired
 	CustomerService customerService;
-	
+
 	@Autowired
 	VendorService vendorService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private CredentialsService credentialService;
 
 	@Autowired
 	private AdminService adminService;
 
-	
-	
-	@RequestMapping(value="/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-	return "login";
+		return "login";
 	}
-	
-	@RequestMapping(value="/loginfailed", method =RequestMethod.GET)
+
+	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(Model model) {
-	model.addAttribute("error", "true");
-	return "login";
+		model.addAttribute("error", "true");
+		return "login";
 	}
-		
-	@RequestMapping(value="/logout", method = RequestMethod.GET )
-	public String logout(Model model, HttpSession session ,SessionStatus status) {
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model, HttpSession session, SessionStatus status) {
 
 		SecurityContextHolder.getContext().setAuthentication(null);
 		status.setComplete();
 		session.invalidate();
-	return "redirect:/welcome";
+		return "redirect:/welcome";
 
 	}
-	
-	
-	 @RequestMapping("/loginSuccess")
-	    public String defaultAfterLogin(HttpServletRequest request,Model model ,Principal principal, HttpSession session ) {
-		 		
-		 session.setAttribute("name", principal.getName());
-		 String name = principal.getName();
-		
-		  //  model.addAttribute("userproduct", productService.getAllItems(userService.getUserByName(name).getId()));
 
-	        if (request.isUserInRole("ROLE_VENDOR")) {
-	        	
-	        model.addAttribute("vendor",vendorService.getVendorByUserName(name));
-	        model.addAttribute("vendorProducts", productService.getAllProductsByVendorId(vendorService.getVendorByUserName(name).getId()));
-	        
-	            return "VendorPage";
-	        }
-	        else if (request.isUserInRole("ROLE_ADMIN")) {
-	        		
-	 
-	        model.addAttribute("admin",adminService.getAdminByUserName(name));
-	            return "AdminPage";
-	        }
-	        else{
-	        	
-	        	model.addAttribute("customer",customerService.getCustomerByUserName(name));
-	        	
-	        return "CustomerPage";
-	        }
-	 }
-	
-	
+	@RequestMapping("/loginSuccess")
+	public String defaultAfterLogin(HttpServletRequest request, Model model, Principal principal, HttpSession session) {
+
+		session.setAttribute("name", principal.getName());
+		String name = principal.getName();
+
+		// model.addAttribute("userproduct",
+		// productService.getAllItems(userService.getUserByName(name).getId()));
+
+		if (request.isUserInRole("ROLE_VENDOR")) {
+
+			model.addAttribute("vendor", vendorService.getVendorByUserName(name));
+			model.addAttribute("vendorProducts",
+					productService.getAllProductsByVendorId(vendorService.getVendorByUserName(name).getId()));
+
+			return "VendorPage";
+		} else if (request.isUserInRole("ROLE_ADMIN")) {
+
+			model.addAttribute("admin", adminService.getAdminByUserName(name));
+			return "AdminPage";
+		} else {
+
+			model.addAttribute("customer", customerService.getCustomerByUserName(name));
+
+			return "CustomerPage";
+		}
+	}
+
 	@ModelAttribute
-	public void init(Model model){
-		model.addAttribute("categories",categoryService.findAll());
+	public void init(Model model) {
+		model.addAttribute("categories", categoryService.findAll());
 		model.addAttribute("products", productService.findApprovedProducts());
 	}
-	
-	
-	
+
 }
