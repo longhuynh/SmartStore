@@ -106,6 +106,7 @@
 		</div>
 	</header>
 	<!-- MENU -->
+	
 	<tiles:insertAttribute name="body" />
 
 	<!-- FOOTER -->
