@@ -175,7 +175,7 @@
 
 				<ul class="footer_menu">
 
-					<li><a href="/smartstore/welcome" title="Home">Home</a></li>
+					<li><a href="/smartstore" title="Home">Home</a></li>
 
 
 
