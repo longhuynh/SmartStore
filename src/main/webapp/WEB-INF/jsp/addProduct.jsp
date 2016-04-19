@@ -3,82 +3,67 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<div class="product_wrap">
 
-	<section class="container">
-		<form:form  modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+
+				<div id="check-accordion">
+					<h5>
+						<small></small><a href="#">New product</a>
+					</h5>
+					<div class=" clearfix">
+					<form:form modelAttribute="product" method="POST" class="billing-form clearfix">
+
 			<fieldset>
 				<legend>New product</legend>
+					<label>Product Name:<form:errors path="productName"
+										cssClass="text-danger" /></label>
+				   <form:input id="productName" path="productName" value="" />		
+				   	
+				   	
+				   <label>Unit Price:<form:errors path="unitPrice"
+										cssClass="text-danger" /></label>
+				   <form:input id="unitPrice" path="unitPrice" value="" />			
+			
+				  <label>Description<form:errors path="description"
+										cssClass="text-danger" /></label>
+				   <form:input id="description" path="description" value="" />	
 
-	
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="name">Product Name:</label>
-					<div class="col-lg-10">
-						<form:input class="form:input-large" id="name" path="productName" type="text" />
-						<form:errors path="productName" cssClass="text-danger"/>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitPrice">Unit Price:</label>
-					<div class="col-lg-10">
-						
-							<form:input class="form:input-large" id="unitPrice" path="unitPrice" type="text" />
-							<form:errors path="unitPrice" cssClass="text-danger"/>
-	
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="description">Description</label>
-					<div class="col-lg-10">
-						<form:textarea  class="form:input-large" id="description" path="description" rows = "2"/>
-						<form:errors path="description" cssClass="text-danger"/>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="category">Category:</label>
-					<div class="col-lg-10">
-						<form:select class="form:input-large"  id="category"  path="category.categoryId" >
+				<label>Category:<form:errors path="description"
+										cssClass="text-danger" /></label>
+				   <form:select class="form:input-large"  id="category"  path="category.categoryId" >
 						<form:options items="${categories}" itemLabel="categoryName"
 							itemValue="categoryId" />
-							
 					</form:select>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="unitsInStock">Quantity:</label>
-					<div class="col-lg-10">
-						<form:input class="form:input-large" id="unitsInStock" path="unitsInStock" type="text" />
-						<form:errors path="unitsInStock" cssClass="text-danger"/>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="productCondition">Product Condition:</label>
-					<div class="col-lg-10">
-						<form:radiobutton path="productCondition" value="New" />New 
-						<form:radiobutton path="productCondition" value="Old" />used 
-						<form:radiobutton path="productCondition" value="Refurbished" />Refurbished
-					</div>
-				</div>
 				
-				<div class="form-group">
-					<label class="control-label col-lg-2" for="productImage">Product Image:</label>
-					<div class="col-lg-10">
-						<form:input class="form:input-large" id="productImage" path="productImage" type="file" />
-					</div>
-				</div>
+				<label>Quantity:<form:errors path="description"
+										cssClass="text-danger" /></label>
+				<form:input id="unitsInStock" path="unitsInStock" value="" />	
 
-
-				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Add"/>
-					</div>
-				</div>
+				<label>Product Condition:<form:errors path="productCondition"
+										cssClass="text-danger" /></label>
+				<form:radiobutton path="productCondition" value="New" />New 
+				<form:radiobutton path="productCondition" value="Old" />used 
+				<form:radiobutton path="productCondition" value="Refurbished" />Refurbished
 				
-			</fieldset>
-		</form:form>
-	</section>
+				<label>Product Image:<form:errors path="productImage"
+										cssClass="text-danger" /></label>
+				<form:input id="productImage" path="productImage" type="file" value="" />	
+				
+				<input type="submit" value="Add" class="red-button">
+
+
+						</form:form>
+					</div>
+				</div>
+
+
+			</div>
+
+
+		</div></div></div>
+
+
 

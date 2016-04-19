@@ -9,7 +9,7 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
+ 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +53,7 @@ public class ProductController {
 	model.addAttribute("vendor",vendorService.getVendorByUserName(principal.getName()));
 		
 		return "addProduct";
-	}
+	} 
 	
 	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
 	public String saveProduct(@Valid @ModelAttribute Product product,BindingResult result,HttpServletRequest request ,
@@ -72,16 +72,16 @@ public class ProductController {
 			System.out.println(rootDirectory);
 
 			try {
-			
+			 
 
 product.setProductPath("/resources/images/" + product.getProductName()+ ".png");
 	//product.setProductPath(rootDirectory + "\\resources\\images\\" + product.getProductName()+ ".png");
 productImage.transferTo(new File(
-		"D:\\ESelling\\src\\main\\webapp\\resources\\images\\" + product.getProductName()+ ".png"));
+	 "C:\\Users\\reno\\Desktop\\Smartstore\\src\\main\\webapp\\resources\\images\\" + product.getProductName()+ ".png"));
 				
 			}
          catch (Exception e) {
-			throw new RuntimeException("Employee Image saving failed", e);
+			throw new RuntimeException("product Image saving failed", e);
 		}
 				
 		}	
