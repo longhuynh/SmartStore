@@ -57,8 +57,16 @@
 				<div class="span10 right">
 					<div class="social-strip">
 						<ul>
-							<li><a href="login" class="account">My Account</a></li>
-							<li><a href="#" class="check">Checkout</a></li>
+							<c:if test="${empty account}">
+								<li><a href="login" class="account">My Account</a></li>
+							</c:if>
+							<c:if test="${not empty account}">
+								<li><a href=" <spring:url value="/home" />" class="account">Hello
+										${account.firstName}</a></li>
+								<li><a href=" <spring:url value="/logout" />" class="check">Log
+										out</a></li>
+							</c:if>
+
 						</ul>
 					</div>
 
@@ -90,10 +98,10 @@
 				<div class="span12">
 					<nav class="desktop-nav">
 						<ul class="clearfix">
-						 <c:forEach var="category" items="${categories}">
-						 <li><a href="#">${category.categoryName}</a></li>
-						
-						 </c:forEach>
+							<c:forEach var="category" items="${categories}">
+								<li><a href="#">${category.categoryName}</a></li>
+
+							</c:forEach>
 						</ul>
 					</nav>
 				</div>
