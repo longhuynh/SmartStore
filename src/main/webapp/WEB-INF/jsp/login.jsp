@@ -2,20 +2,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<!-- BAR -->
-<div class="bar-wrap">
-	<div class="container">
-		<div class="row">
-			<div class="span12">
-				<div class="title-bar">
-					<h1>LOGIN</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- BAR -->
-
 <div class="product_wrap">
 
 	<div class="container">
@@ -54,7 +40,7 @@
 								class="form-horizontal" method="post">
 								<label>Your username</label> <input name='j_username'
 									type="text" placeholder="enter your username"><br /> <label>Your
-									Password</label> <input name='j_password' value="" type="text"
+									Password</label> <input name='j_password' value="" type="password"
 									placeholder="enter your password"><br /> <a href="#">Forgot
 									your password ?</a>
 								<c:if test="${not empty error}">

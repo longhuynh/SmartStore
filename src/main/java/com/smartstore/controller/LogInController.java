@@ -37,9 +37,6 @@ public class LogInController {
 	private ProductService productService;
 
 	@Autowired
-	private CredentialsService credentialService;
-
-	@Autowired
 	private AdminService adminService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -63,30 +60,22 @@ public class LogInController {
 
 	}
 
-	@RequestMapping("/loginSuccess")
+	@RequestMapping("/home")
 	public String defaultAfterLogin(HttpServletRequest request, Model model, Principal principal, HttpSession session) {
 
 		session.setAttribute("name", principal.getName());
 		String name = principal.getName();
-
-		// model.addAttribute("userproduct",
-		// productService.getAllItems(userService.getUserByName(name).getId()));
-
+		
 		if (request.isUserInRole("ROLE_VENDOR")) {
-
+			long vendorId = vendorService.getVendorByUserName(name).getId();
 			model.addAttribute("vendor", vendorService.getVendorByUserName(name));
-			model.addAttribute("vendorProducts",
-					productService.getAllProductsByVendorId(vendorService.getVendorByUserName(name).getId()));
-
+			model.addAttribute("vendorProducts", productService.getAllProductsByVendorId(vendorId));			
 			return "VendorPage";
 		} else if (request.isUserInRole("ROLE_ADMIN")) {
-
 			model.addAttribute("admin", adminService.getAdminByUserName(name));
 			return "AdminPage";
 		} else {
-
 			model.addAttribute("customer", customerService.getCustomerByUserName(name));
-
 			return "CustomerPage";
 		}
 	}

@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.smartstore.domain.Admin;
 import com.smartstore.domain.Credentials;
 import com.smartstore.domain.Customer;
 import com.smartstore.domain.MyFinance;
 import com.smartstore.domain.Vendor;
+import com.smartstore.service.AdminService;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CredentialsService;
 import com.smartstore.service.CustomerService;
@@ -33,7 +35,12 @@ import com.smartstore.smtp.EmailUtil;
 
 @Controller
 public class SignupController {
+	final String fromEmail = "pmesellingroup3@gmail.com"; 
+	final String password = "lachimachidoo"; 
 
+	@Autowired
+	AdminService adminService;
+	
 	@Autowired
 	CustomerService CustomerService;
 
@@ -52,62 +59,52 @@ public class SignupController {
 	@Autowired
 	private MyFinanceService myFinanceService;
 
-	@RequestMapping(value = "/CustomerSignUp", method = RequestMethod.GET)
-	public String customerSignup(@ModelAttribute Customer customer) {
-		return "CustomerSignUp";
+	@RequestMapping(value = "/AdminSignUp", method = RequestMethod.GET)
+	public String adminSignup(@ModelAttribute Admin admin) {
+		return "AdminSignUp";
 	}
 
-	@RequestMapping(value = "/AddNewAdmin", method = RequestMethod.GET)
-	public String adminSignup(@ModelAttribute Customer customer) {
-		return "AdminAdd";
-	}
-
-	@RequestMapping(value = "/AdminAdd", method = RequestMethod.POST)
-	public String processAdminSignUp(@Valid @ModelAttribute Customer customer, BindingResult result, Model model,
+	@RequestMapping(value = "/AdminSignUp", method = RequestMethod.POST)
+	public String processAdminSignUp(@Valid @ModelAttribute Admin admin, BindingResult result, Model model,
 			RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
-			return "AdminAdd";
+			return "AdminSignUp";
 		}
 
 		List<Credentials> userName = credentialService.getAll();
-		customer.getCredentials().getUsername().toLowerCase();
+		admin.getCredentials().getUsername().toLowerCase();
 		for (Credentials c : userName) {
-			if (c.getUsername().equals(customer.getCredentials().getUsername())) {
+			if (c.getUsername().equals(admin.getCredentials().getUsername())) {
 				model.addAttribute("username", "True");
-				return "AdminAdd";
+				return "AdminSignUp";
 			}
 		}
-		if (!(customer.getCredentials().getPassword().equals(customer.getCredentials().getVerifyPassword()))) {
+		/*if (!(admin.getCredentials().getPassword().equals(admin.getCredentials().getVerifyPassword()))) {
 			model.addAttribute("password", "true");
-			return "AdminAdd";
-		}
+			return "AdminSignUp";
+		}*/
 
 		// Credit card Information check
 		List<MyFinance> finance = myFinanceService.getAll();
 		int found = 0;
 		for (MyFinance f : finance) {
-			if (f.getCreditCardNo().equals(customer.getCreditCard().getCreditCardNo())) {
+			if (f.getCreditCardNo().equals(admin.getCreditCard().getCreditCardNo())) {
 				found = 1;
 			}
 
 			if (found == 0) {
 				model.addAttribute("nonexistent", "true");
-				return "AdminAdd";
+				return "AdminSignUp";
 			}
 		}
 
-		customer.getCredentials().setPassword(getHashPassword(customer.getCredentials().getPassword()));
-		customer.setPassword(getHashPassword(customer.getCredentials().getPassword()));
+		admin.getCredentials().setPassword(getHashPassword(admin.getCredentials().getPassword()));
+		admin.setPassword(getHashPassword(admin.getCredentials().getPassword()));
 
-		CustomerService.addNewCustomer(customer);
+		adminService.addNewAdmin(admin);
 		redirectAttributes.addFlashAttribute("successful", "true");
 
-		// send email
-		final String fromEmail = "pmesellingroup3@gmail.com"; // requires valid
-																// gmail id
-		final String password = "lachimachidoo"; // correct password for gmail
-													// id
-		final String toEmail = customer.getEmail();
+		final String toEmail = admin.getEmail();
 
 		// create Authenticator object to pass in Session.getInstance argument
 		Authenticator auth = new Authenticator() {
@@ -118,13 +115,17 @@ public class SignupController {
 		};
 
 		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
-		EmailUtil.sendEmail(session, toEmail, " Welcome " + customer.getFirstName(), customer.getFirstName()
+		EmailUtil.sendEmail(session, toEmail, " Welcome " + admin.getFirstName(), admin.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and purchase from our site. ");
-		return "redirect:/welcome";
+		return "redirect:/index";
 	}
 
-	// customer signup
 
+	@RequestMapping(value = "/CustomerSignUp", method = RequestMethod.GET)
+	public String customerSignup(@ModelAttribute Customer customer) {
+		return "CustomerSignUp";
+	}
+	
 	@RequestMapping(value = "/CustomerSignUp", method = RequestMethod.POST)
 	public String processCustomerSignUp(@Valid @ModelAttribute Customer customer, BindingResult result, Model model,
 			RedirectAttributes redirectAttributes) {
@@ -140,10 +141,10 @@ public class SignupController {
 				return "CustomerSignUp";
 			}
 		}
-		if (!(customer.getCredentials().getPassword().equals(customer.getCredentials().getVerifyPassword()))) {
+	/*	if (!(customer.getCredentials().getPassword().equals(customer.getCredentials().getVerifyPassword()))) {
 			model.addAttribute("password", "true");
 			return "CustomerSignUp";
-		}
+		}*/
 
 		// Credit card Information check
 		List<MyFinance> finance = myFinanceService.getAll();
@@ -164,12 +165,7 @@ public class SignupController {
 
 		CustomerService.addNewCustomer(customer);
 		redirectAttributes.addFlashAttribute("successful", "true");
-
-		// send email
-		final String fromEmail = "pmesellingroup3@gmail.com"; // requires valid
-																// gmail id
-		final String password = "lachimachidoo"; // correct password for gmail
-													// id
+												
 		final String toEmail = customer.getEmail();
 
 		// create Authenticator object to pass in Session.getInstance argument
@@ -183,10 +179,8 @@ public class SignupController {
 		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + customer.getFirstName(), customer.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and purchase from our site. ");
-		return "redirect:/welcome";
+		return "redirect:/index";
 	}
-
-	// Vendor Signup
 
 	@RequestMapping(value = "/VendorSignUp", method = RequestMethod.GET)
 	public String vendorSignup(@ModelAttribute Vendor vendor) {
@@ -210,10 +204,10 @@ public class SignupController {
 				return "VendorSignUp";
 			}
 		}
-		if (!(vendor.getCredentials().getPassword().equals(vendor.getCredentials().getVerifyPassword()))) {
+	/*	if (!(vendor.getCredentials().getPassword().equals(vendor.getCredentials().getVerifyPassword()))) {
 			model.addAttribute("password", "true");
 			return "VendorSignUp";
-		}
+		}*/
 
 		// Credit card Information check
 		List<MyFinance> finance = myFinanceService.getAll();
@@ -235,10 +229,6 @@ public class SignupController {
 		redirectAttributes.addFlashAttribute("successful", "true");
 		vendorService.addNewVendor(vendor);
 
-		final String fromEmail = "pmesellingroup3@gmail.com"; // requires valid
-																// gmail id
-		final String password = "lachimachidoo"; // correct password for gmail
-													// id
 		final String toEmail = vendor.getEmail();
 
 		// create Authenticator object to pass in Session.getInstance argument
@@ -253,7 +243,7 @@ public class SignupController {
 		EmailUtil.sendEmail(session, toEmail, " Welcome " + vendor.getFirstName(), vendor.getFirstName()
 				+ "you have successfully signedup to E-Selling. You can now sign in and Post your Products in  our site. ");
 
-		return "redirect:/welcome";
+		return "redirect:/index";
 	}
 
 	@ModelAttribute
@@ -261,7 +251,7 @@ public class SignupController {
 
 		Integer[] months = new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 		Integer[] years = new Integer[] { 2015, 2016, 2017, 2018, 2019, 2020, 2021 };
-		String[] states = new String[] { "OH", "VA", "OK", "OR", "SC", "NY", "IA", "MD", "NH", "NV", "LA", "FL", "TX",
+		String[] states = new String[] { "IA", "OH", "VA", "OK", "OR", "SC", "NY", "MD", "NH", "NV", "LA", "FL", "TX",
 				"UT" };
 		String[] creditType = new String[] { "Visa", "MasterCard" };
 		Arrays.asList(months);
