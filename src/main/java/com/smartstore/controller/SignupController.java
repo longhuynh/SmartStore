@@ -21,13 +21,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.smartstore.domain.Admin;
 import com.smartstore.domain.Credentials;
 import com.smartstore.domain.Customer;
-import com.smartstore.domain.MyFinance;
 import com.smartstore.domain.Vendor;
 import com.smartstore.service.AdminService;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CredentialsService;
 import com.smartstore.service.CustomerService;
-import com.smartstore.service.MyFinanceService;
 import com.smartstore.service.ProductService;
 import com.smartstore.service.VendorService;
 import com.smartstore.smtp.EmailSettings;
@@ -42,7 +40,7 @@ public class SignupController {
 	AdminService adminService;
 	
 	@Autowired
-	CustomerService CustomerService;
+	CustomerService customerService;
 
 	@Autowired
 	VendorService vendorService;
@@ -56,8 +54,6 @@ public class SignupController {
 	@Autowired
 	private CredentialsService credentialService;
 
-	@Autowired
-	private MyFinanceService myFinanceService;
 
 	@RequestMapping(value = "/AdminSignUp", method = RequestMethod.GET)
 	public String adminSignup(@ModelAttribute Admin admin) {
@@ -76,24 +72,6 @@ public class SignupController {
 		for (Credentials c : userName) {
 			if (c.getUsername().equals(admin.getCredentials().getUsername())) {
 				model.addAttribute("username", "True");
-				return "AdminSignUp";
-			}
-		}
-		/*if (!(admin.getCredentials().getPassword().equals(admin.getCredentials().getVerifyPassword()))) {
-			model.addAttribute("password", "true");
-			return "AdminSignUp";
-		}*/
-
-		// Credit card Information check
-		List<MyFinance> finance = myFinanceService.getAll();
-		int found = 0;
-		for (MyFinance f : finance) {
-			if (f.getCreditCardNo().equals(admin.getCreditCard().getCreditCardNo())) {
-				found = 1;
-			}
-
-			if (found == 0) {
-				model.addAttribute("nonexistent", "true");
 				return "AdminSignUp";
 			}
 		}
@@ -141,29 +119,11 @@ public class SignupController {
 				return "CustomerSignUp";
 			}
 		}
-	/*	if (!(customer.getCredentials().getPassword().equals(customer.getCredentials().getVerifyPassword()))) {
-			model.addAttribute("password", "true");
-			return "CustomerSignUp";
-		}*/
-
-		// Credit card Information check
-		List<MyFinance> finance = myFinanceService.getAll();
-		int found = 0;
-		for (MyFinance f : finance) {
-			if (f.getCreditCardNo().equals(customer.getCreditCard().getCreditCardNo())) {
-				found = 1;
-			}
-			
-			if (found == 0) {
-				model.addAttribute("nonexistent", "true");
-				return "CustomerSignUp";
-			}
-		}
 
 		customer.getCredentials().setPassword(getHashPassword(customer.getCredentials().getPassword()));
 		customer.setPassword(getHashPassword(customer.getCredentials().getPassword()));
 
-		CustomerService.addNewCustomer(customer);
+		customerService.addNewCustomer(customer);
 		redirectAttributes.addFlashAttribute("successful", "true");
 												
 		final String toEmail = customer.getEmail();
@@ -204,25 +164,7 @@ public class SignupController {
 				return "VendorSignUp";
 			}
 		}
-	/*	if (!(vendor.getCredentials().getPassword().equals(vendor.getCredentials().getVerifyPassword()))) {
-			model.addAttribute("password", "true");
-			return "VendorSignUp";
-		}*/
-
-		// Credit card Information check
-		List<MyFinance> finance = myFinanceService.getAll();
-		int found = 0;
-		for (MyFinance f : finance) {
-			if (f.getCreditCardNo().equals(vendor.getCreditCard().getCreditCardNo())) {
-				found = 1;
-			}
-
-			if (found == 0) {
-				model.addAttribute("nonexistent", "true");
-				return "VendorSignUp";
-			}
-		}
-
+		
 		vendor.getCredentials().setPassword(getHashPassword(vendor.getCredentials().getPassword()));
 		vendor.setPassword(getHashPassword(vendor.getCredentials().getPassword()));
 

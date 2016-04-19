@@ -19,7 +19,6 @@ import com.smartstore.domain.Cart;
 import com.smartstore.domain.ProductOrder;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CustomerService;
-import com.smartstore.service.MyFinanceService;
 import com.smartstore.service.OrderService;
 
 @Controller
@@ -32,8 +31,8 @@ public class CheckoutController {
 	@Autowired
 	private OrderService orderService;
 
-	@Autowired
-	private MyFinanceService myFinanceService;
+	/*@Autowired
+	private MyFinanceService myFinanceService;*/
 
 	@Autowired
 	CustomerService customerService;
