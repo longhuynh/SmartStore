@@ -111,9 +111,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+						<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -134,9 +133,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+						<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -157,9 +155,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+							<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -180,9 +177,7 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+							<a href="#" class="one tooltip" title="Add to cart"></a> 
 						</div>
 					</div>
 				</div>
@@ -203,9 +198,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+						<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -226,9 +220,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+							<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -249,9 +242,8 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+							<a
+								href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -272,9 +264,7 @@
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to wish list"></a> <a
-								href="#" class="two tooltip " title="Add to cart"></a> <a
-								href="#" class="three tooltip" title="Add to compare"></a>
+							<a href="#" class="one tooltip" title="Add to cart"></a> 
 						</div>
 					</div>
 				</div>

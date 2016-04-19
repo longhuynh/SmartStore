@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smartstore.domain.Admin;
+import com.smartstore.domain.Customer;
 import com.smartstore.repository.AdminRepository;
 import com.smartstore.repository.CredentialRepository;
 import com.smartstore.service.AdminService;
@@ -20,8 +21,12 @@ public class AdminServiceImpl implements AdminService {
 	private CredentialRepository credentialRepository;
 
 	public Admin getAdminByUserName(String name) {
-
 		return adminRepository.findAdminByUserName(name);
+	}
+	
+	public void addNewAdmin(Admin admin) {
+		credentialRepository.save(admin.getCredentials());
+		adminRepository.save(admin);
 	}
 
 }

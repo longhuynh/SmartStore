@@ -379,7 +379,7 @@ header nav > ul > li ul li a{display: block;}
 
 #check-accordion form { padding: 25px; }
 #check-accordion form input[type='radio'] { margin: -2px 15px 15px 0px; }
-#check-accordion form label { font: 14px 'Arial' sana-serif; color: #000000; vertical-align: middle;display: inline-block; margin-top: -17px; width: 150px; }
+#check-accordion form label { font: 14px 'Arial' sana-serif; color: #000000; vertical-align: middle;display: inline-block; margin-top: -17px; width: 250px; }
 #check-accordion form p { font: 14px 'Arial' sans-serif; color: #8a8a8a; line-height: 22px; margin-bottom: 17px;  }
 #check-accordion form input[type='submit'] {  -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; background: #f71919; padding: 10px 15px; border: 0px; color: #ffffff; font:700 14px 'Arial' sans-serif; }
 #check-accordion form input[type='submit']:hover{background: #cc2828;}
@@ -390,6 +390,7 @@ header nav > ul > li ul li a{display: block;}
 #check-accordion .register  input[type='submit']:hover {background: #262626;}
 #check-accordion .register label { margin-top: -23px; }
 #check-accordion  input[type='text'] {width:213px; border-radius: 0px; box-shadow: none; outline: 0px; margin-bottom: 22px; }
+#check-accordion  input[type='password'] {width:213px; border-radius: 0px; box-shadow: none; outline: 0px; margin-bottom: 22px; }
 
 .billing-form { padding: 0px !important;;width: 1125px;margin-left: 20px; background: none; border: 0px; }
 .billing-form label { display: block !important;   margin-bottom: 10px !important; margin-top: 0px !important;;}
@@ -399,7 +400,8 @@ header nav > ul > li ul li a{display: block;}
 .billing-form fieldset.last input[type='text']{ width: 97% !important; }
 .billing-form fieldset input[type='text']{ width: 97% !important;border: 1px solid #dddddd; }
 
-.billing-form input[type='text']{ width: 98.5% !important; margin-bottom: 19px !important;  height: 26px !important; }
+.billing-form input[type='password']{ width: 97% !important; margin-bottom: 19px !important;  height: 36px !important; }
+.billing-form input[type='text']{ width: 98.5% !important; margin-bottom: 19px !important;  height: 36px !important; }
 .billing-form fieldset .selectBox.selectBox-dropdown {width: 100% !important;;margin-bottom: 19px !important;  height: 34px !important;}
 .billing-form fieldset .selectBox-dropdown .selectBox-arrow { background: url("../images/big-errow.png") no-repeat !important; width: 38px !important;}
 

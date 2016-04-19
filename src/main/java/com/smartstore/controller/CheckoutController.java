@@ -74,7 +74,7 @@ public class CheckoutController {
 			this.orderService.store(productOrder);
 			status.setComplete(); // remove order from session
 			this.cart.clear(); // clear the cart
-			return "redirect:/loginSuccess";
+			return "redirect:/home";
 		}
 	}
 
@@ -82,7 +82,7 @@ public class CheckoutController {
 	public String cancel(SessionStatus status, @ModelAttribute ProductOrder productOrder, HttpSession session) {
 		status.setComplete(); // remove order from session
 		this.cart.clear(); // clear the cart
-		return "redirect:/loginSuccess";
+		return "redirect:/home";
 	}
 
 	@ModelAttribute

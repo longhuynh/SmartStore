@@ -38,10 +38,10 @@
 
 				<div class="span5">
 					<div class="logo">
-						<a href="index.html"><img src="resources/images/logo.png"
+						<a href=" <spring:url value="/" />"><img src="resources/images/logo.png"
 							alt=""></a>
 						<h1>
-							<a href="index.html">Welcom to<span>
+							<a href=" <spring:url value="/" />">Welcom to<span>
 									Max Shop </span> USA
 							</a>
 						</h1>

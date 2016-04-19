@@ -53,22 +53,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="span12">
-
-
-
 					<nav class="desktop-nav">
 						<ul class="clearfix">
 							<li><a href="#">Hello ${vendor.firstName} </a></li>
-							<li><a href=" <spring:url value="/pendingProducts" />">Approve
-									Products </a></li>
-
+							<li><a href=" <spring:url value="/addProduct" />">Add
+									New Product </a></li>
+							<li><a href=" <spring:url value="/myProducts" />">View
+									My Products</a></li>
 						</ul>
 					</nav>
-
-					<select>
-						<option>Hello ${vendor.firstName}</option>
-						<option>Add New Product</option>
-					</select>
+			
 				</div>
 			</div>
 		</div>

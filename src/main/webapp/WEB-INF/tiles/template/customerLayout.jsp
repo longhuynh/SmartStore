@@ -6,98 +6,83 @@
 
 
 
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- META TAGS -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
 
-	
-	
+<!-- Title -->
+<title>Max Shop</title>
+
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,600,800'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald:400,700'
+	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quattrocento:400,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- Style Sheet-->
+<link rel="stylesheet" href="resources/css/tooltipster.css"
+	type="text/css">
+<link href="resources/css/ie.css" rel="stylesheet" media="all"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/bootstrap.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<link rel="stylesheet" href="resources/css/responsive.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/prettyPhoto.css"
+	type="text/css">
+
+
+<!-- favicon -->
+<link rel="shortcut icon" href="resources/images/favicon.jpg">
+
+<!-- Include the HTML5 shiv print polyfill for Internet Explorer browsers 8 and below -->
+<!--[if lt IE 10]><script src="resources/js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 </head>
-<title>Online Shopping</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style type="text/css"></style>
-<link href="resources/css/all.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css"	rel="stylesheet">
-
 <body>
-<div class="container">
-		<div id="header">
-			<div class="right"
-				style="padding-right: 16px; padding-top: 12px; width: 115px; height: 40px; float: right; margin-top: -59px; margin-right: 30px;">
-				<ul>
-					<li class="right"><a href="#"> <img align="right"
-							alt="Spanish" src="resources/images/Sp.png"
-							style="margin-right: -20px" title="Español" class="drop5">
-					</a></li>
-					<li class="right"><a href="#"> <img align="right"
-							alt="French" src="resources/images/Fr.png"
-							style="margin-right: 6px" title="Français" class="drop5">
-					</a></li>
-					<li class="right"><a href="#"> <img align="right"
-							alt="English" src="resources/images/UK1.png"
-							style="padding-right: 5px; opacity: 1;" title="English"
-							class="drop5">
-					</a></li>
-				</ul>
+	<!-- HEADER -->
+	<tiles:insertAttribute name="header" />
+	<!-- HEADER -->
+
+	<!-- MENU -->
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<nav class="desktop-nav">
+						<ul class="clearfix">
+							<li><a href="#">Hello ${vendor.firstName} </a></li>
+							
+						</ul>
+					</nav>
+				
+				</div>
 			</div>
-			<span class="logo left"> <a href="/smartstore/"> <img
-					alt="E-Selling System" title="E-Selling System"
-					src="resources/images/logo.png" />
-			</a>
-			</span>
-
-			<div class="right" id="share" style="width: 650px">
-				<ul class="nav">
-				<form:form  action="/smartstore/productsearch" method="get">
-					<div class="styled-select">
-						<select id="categoryId" name="categoryId">
-						 <c:forEach var="category" items="${categories}">
-							<option value="${category.categoryId}">${category.categoryName}</option>
-						 </c:forEach>
-						</select>
-					</div>
-					<li id="search">
-						
-							<input type="text" name="search_text" id="search_text" placeholder="search a product..." /> 
-							<input type="submit" name="search_button" id="search_button" value="Search"/>
-						
-					</li>
-					</form:form>
-				</ul>
-
-			<br class="clear" />
-				<div class="menu">
-			<ul>
-			
-			<li><strong>Hello ${customer.firstName}</strong></li>	
-			<li><a href=" <spring:url value="/logout" />" >SignOut</a> </li>
-			<li><a href="#"><pre id="separator">   |   </pre></a></li>	
-	       </ul>	
-				</div>
-				</div>
-	
 		</div>
-			<%-- <h1>
-				<tiles:insertAttribute name="heading" />
-			</h1> --%>
-			<p>
-				<tiles:insertAttribute name="tagline" />
-			</p>
-		</div>
+	</header>
+	<!-- MENU -->
+	<tiles:insertAttribute name="body" />
 
-		<div class="row">
-			<tiles:insertAttribute name="body" />
-		</div>
+	<!-- FOOTER -->
+	<tiles:insertAttribute name="footer" />
+	<!-- FOOTER -->
 
-		<div class="footer">
-			<tiles:insertAttribute name="footer" />
-		</div>
-
+	<!-- Scripts -->
+	<script src="resources/js/jquery-1.9.1.min.js"></script>
+	<script src="resources/js/jquery-ui.js"></script>
+	<script src="resources/js/jquery.cycle.all.js"></script>
+	<script src="resources/js/modernizr.custom.17475.js"></script>
+	<script src="resources/js/jquery.elastislide.js"></script>
+	<script src="resources/js/jquery.carouFredSel-6.0.4-packed.js"></script>
+	<script src="resources/js/jquery.selectBox.js"></script>
+	<script src="resources/js/jquery.tooltipster.min.js"></script>
+	<script src="resources/js/jquery.prettyPhoto.js"></script>
+	<script src="resources/js/custom.js"></script>
 </body>
 </html>
+
+

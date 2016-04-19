@@ -3,208 +3,158 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Customer Registration</title>
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
 
-<body>
-<div class="container">
-				<c:if test="${not empty username}">
-<div class="alert alert-danger"  >
-<spring:message code="duplicateusername"/><br />
-</div> 
-</c:if>
+<div class="product_wrap">
 
-<c:if test="${not empty password}">
-<div class="alert alert-danger"  >
-<spring:message code="passwordmismatch"/><br />
-</div> 
-</c:if>
-<c:if test="${not empty nonexistent}">
-<div class="alert alert-danger"  >
-<spring:message code="creditcardnonexistent"/><br />
-</div> 
-</c:if>
+	<div class="container">
+		<div class="row">
+			<div class="span12">
 
-<c:if test="${not empty wrongCreditCard}">
- <div class="alert alert-danger"  >
-<spring:message code="wrongCreditCard"/><br />
- </div>
-</c:if>
+				<div id="check-accordion">
+					<h5>
+						<small></small><a href="#">Customer Sign Up</a>
+					</h5>
+					<div class=" clearfix">
+						<form:form modelAttribute="customer" method="POST"
+							class="billing-form clearfix">
+
+
+							<fieldset>
+								<label>First Name <form:errors path="firstName"
+										cssClass="text-danger" /></label>
+
+								<form:input id="firstName" path="firstName" value="" />
+								<label>User Name <form:errors
+										path="credentials.username" cssClass="text-danger" /></label>
+
+								<form:input id="username" path="credentials.username" value="" />
+								<label>Phone number <form:errors path="phone"
+										cssClass="text-danger" /></label>
+								<form:input id="phone" path="phone" value="" />
+
+							</fieldset>
+
+							<fieldset class="last">
+								<label>Last Name <form:errors path="lastName"
+										cssClass="text-danger" /></label>
+
+								<form:input id="lastName" path="lastName" value="" />
+
+								<label>Password</label>
+								<form:input id="password" path="credentials.password" value=""
+									type="password" />
+								<label>E-mail <form:errors path="email"
+										cssClass="text-danger" />
+								</label>
+								<form:input id="email" path="email" value="" />
+							</fieldset>
+
+							<label>Address <form:errors path="address.street"
+									cssClass="text-danger" /></label>
+							<form:input id="street" path="address.street" value=""
+								type="text" />
+
+
+							<fieldset>
+								<label>State</label>
+								<form:select id="state" path="address.state">
+
+									<form:options items="${states}" />
+
+								</form:select>
+								<label>Card Type</label>
+								<form:select class="form:input-large" id="creditCardType"
+									path="creditCard.creditCardType">
+
+									<form:options items="${creditType}" />
+									<form:errors path="creditCard.creditCardType"
+										cssClass="text-danger" />
+								</form:select>
+
+
+
+								<label>Expire Month <form:errors
+										path="creditCard.expMonth" cssClass="text-danger" /></label>
+								<form:select class="form:input-large" id="expMonth"
+									path="creditCard.expMonth">
+
+									<form:options items="${months}" />
+
+								</form:select>
+
+								<label>Expire Year <form:errors
+										path="creditCard.expYear" cssClass="text-danger" /></label>
+								<form:select class="form:input-large" id="expYear"
+									path="creditCard.expYear">
+									<form:options items="${years}" />
+
+								</form:select>
+							</fieldset>
+
+							<fieldset class="last">
+								<label>Zip Code <form:errors path="address.zipcode"
+										cssClass="text-danger" />
+								</label>
+								<form:input id="zipcode" path="address.zipcode" value=""
+									type="text" />
+								<label>Card Number <form:errors
+										path="creditCard.creditCardNo" cssClass="text-danger" /></label>
+								<form:input id=" creditCardNo" path="creditCard.creditCardNo"
+									value="" type="text" />
+								<label>Name On Card <form:errors
+										path="creditCard.nameOnCard" cssClass="text-danger" /></label>
+								<form:input id="nameOnCard" path="creditCard.nameOnCard"
+									value="" type="text" />
+
+								<label>3 Digit Security Code <form:errors
+										path="creditCard.securityCode" cssClass="text-danger" /></label>
+								<form:input id="securityCode" path="creditCard.securityCode"
+									value="" type="password" />
+
+
+							</fieldset>
+
+							<form:hidden path="credentials.enabled" value="TRUE" />
+							<form:hidden path="credentials.authority[0].authority"
+								value="ROLE_CUSTOMER" />
+
+
+
+							<input type="submit" value="Register" class="red-button">
+
+
+						</form:form>
+					</div>
+				</div>
+
+
+			</div>
+
+
+		</div>
+		<div class="row">
+			<c:if test="${not empty username}">
+				<div class="alert alert-danger">
+					<spring:message code="duplicateusername" />
+					<br />
+				</div>
+			</c:if>
+
+			<c:if test="${not empty nonexistent}">
+				<div class="alert alert-danger">
+					<spring:message code="creditcardnonexistent" />
+					<br />
+				</div>
+			</c:if>
+
+			<c:if test="${not empty wrongCreditCard}">
+				<div class="alert alert-danger">
+					<spring:message code="wrongCreditCard" />
+					<br />
+				</div>
+			</c:if>
+		</div>
+	</div>
 
 </div>
-
-	<section class="container">
-	<form:form modelAttribute="customer" class="form-horizontal" method="POST" enctype="utf8">
-	<fieldset>
-				<legend>New Customer</legend>
-
-				<div class="form-group">
-				<label class="control-label col-lg-2" for="firstName">First Name:</label>
-				<div class="col-lg-10">
-				<form:input  class="form:input-large" id="firstName" path="firstName" value="" /> 
-				 <form:errors path="firstName" cssClass="text-danger"/>
-			</div>
-				</div>
-			<div class="form-group">
-				<label class="control-label col-lg-2" for="lastName">Last Name:</label>
-				<div class="col-lg-10">
-				<form:input class="form:input-large" id="lastName" path="lastName" value="" />
-				<form:errors path="lastName" cssClass="text-danger" />
-			</div>
-				</div>
-				
-				<div class="form-group">
-				<label class="control-label col-lg-2" for="email">Email:</label>
-				<div class="col-lg-10">
-				<form:input class="form:input-large" id="email" path="email" value="" />
-				  <form:errors path="email" cssClass="text-danger" />  
-				
-			</div>
-				</div>
-				
-				<div class="form-group">
-			<label class="control-label col-lg-2" for="phone">Phone Number:</label>
-			<div class="col-lg-10">
-				<form:input  class="form:input-large"  id="phone" path="phone" value="" /> 
-				  <form:errors path="phone" cssClass="text-danger" /> 
-				</div>
-				</div>
-				
-			<div class="form-group">
-				<label class="control-label col-lg-2" for="street">Street:</label>
-				<div class="col-lg-10">
-				<form:input  class="form:input-large"  id="street" path="address.street" value="" type="text" />
-					 <form:errors path="address.street" cssClass="text-danger" /> 
-		</div>
-				</div>
-				
-               <div class="form-group">
-				<label class="control-label col-lg-2" for="state">State:</label>	
-			<div class="col-lg-10">	
-              <form:select  class="form:input-large" id="state" path="address.state">
-				 <form:option value="0" label="-state-" /> 
-						<form:options items="${states}" />
-						<%-- <form:errors path="address.state" cssClass="text-danger" /> --%>
-					</form:select>
-					</div>
-				</div>
-				
-			
-            <div class="form-group">
-				<label class="control-label col-lg-2" for="zipcode">Zip Code:</label>
-				<div class="col-lg-10">	
-				<form:input  class="form:input-large" id="zipcode" path="address.zipcode" value="" type="text" />
-					 <form:errors path="address.zipcode" cssClass="text-danger" /> 
-			</div>
-				</div>
-				
-					<!-- <label class="control-label col-lg-2" for="authority">Role</label> -->
-					<form:hidden path="credentials.authority[0].authority"
-						value="ROLE_CUSTOMER" /> <%-- <form:errors path="credentials.authority[0].authority" cssClass="text-danger"/> --%>		
-		
-			<form:hidden path="credentials.enabled" value="TRUE" />
-
-
-			<div class="form-group">
-			<label class="control-label col-lg-2" for="username">User Name:</label>
-				<div class="col-lg-10">	
-				<form:input class="form:input-large" id ="username" path="credentials.username" value="" />
-				  <form:errors path="credentials.username" cssClass="text-danger" /> 
-			</div>
-				</div>
-			
-              <div class="form-group">
-			
-				<label class="control-label col-lg-2" for="password">Password:</label>
-				<div class="col-lg-10">	
-				<form:input class="form:input-large" id= "password" path="credentials.password" value=""
-						type="password" /> <%-- <form:errors path="password" cssClass="text-danger" /> --%>					
-		</div>
-				</div>
-				
-			<div class="form-group">
-				<label class="control-label col-lg-2" for="verifyPassword">Verify Password:</label>
-               <div class="col-lg-10">	
-				<form:input class="form:input-large" id="verifyPassword" path="credentials.verifyPassword" value="" type="password" /> 
-						 <form:errors path="credentials.verifyPassword" cssClass="text-danger" /> 
-						
-				</div>
-				</div>
-			
-
-			<div class="form-group">
-			<label class="control-label col-lg-2" for="creditCardNo">Card Number:</label>
-			<div class="col-lg-10">	
-				<form:input class="form:input-large" id=" creditCardNo" path="creditCard.creditCardNo" value=""
-						type="text" /> 
-			 <form:errors path="creditCard.creditCardNo" cssClass="text-danger" /> 
-			</div>
-				</div>
-			
-		<div class="form-group">
-				<label class="control-label col-lg-2" for="expMonth">CardType:</label>
-					<div class="col-lg-10">
-				<form:select class="form:input-large" id="expMonth" path="creditCard.creditCardType">
-			
-						<form:options items="${creditType}" />
-					  <form:errors path="creditCard.creditCardType" cssClass="text-danger" /> 
-					</form:select>
-			</div>
-				</div>
-				
-			<div class="form-group">
-			<label class="control-label col-lg-2" for="nameOnCard">Name On Card:</label>
-			<div class="col-lg-10">	
-				<form:input class="form:input-large" id="nameOnCard" path="creditCard.nameOnCard" value=""
-						type="text" />
-		 <form:errors path="creditCard.nameOnCard"  cssClass="text-danger" /> 
-			</div>
-				</div>
-			
-			<div class="form-group">
-				<label class="control-label col-lg-2" for="expMonth">Expire Month:</label>
-					<div class="col-lg-10">
-				<form:select class="form:input-large" id="expMonth" path="creditCard.expMonth">
-			
-						<form:options items="${months}" />
-					 <form:errors path="creditCard.expMonth" cssClass="text-danger" /> 
-					</form:select>
-			</div>
-				</div>
-
-			<div class="form-group">
-				<label class="control-label col-lg-2" for="expYear">Expire Year:</label>
-				<div class="col-lg-10">
-			<form:select  class="form:input-large" id="expYear" path="creditCard.expYear">
-						<form:options items="${years}" />
-				 <form:errors path="creditCard.expYear" cssClass="text-danger"/> 
-					</form:select>
-			</div>
-				</div>
-				
-				<div class="form-group">
-				<label class="control-label col-lg-2" for="securityCode">3 Digit Security Code:</label>
-				<div class="col-lg-10">
-				<form:input class="form:input-large" id="securityCode" path="creditCard.securityCode" value="" type="password" />
-		 <form:errors path="creditCard.securityCode" cssClass="text-danger"/> 
-				</div>
-				</div>
-
-		<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<input type="submit" id="btnAdd" class="btn btn-primary" value ="Register"/>
-					</div>
-				</div>
-				
-			</fieldset>
-		</form:form>
-	</section>
-</body>
-
-
-</html>
+<!-- PRODUCT-OFFER -->

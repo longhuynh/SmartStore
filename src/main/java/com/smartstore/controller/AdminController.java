@@ -21,6 +21,7 @@ import com.smartstore.service.CategoryService;
 import com.smartstore.service.ProductService;
 import com.smartstore.service.VendorService;
 import com.smartstore.smtp.EmailSettings;
+import com.smartstore.smtp.EmailUtil;
 
 @Controller
 public class AdminController {
@@ -62,7 +63,7 @@ public class AdminController {
 																// gmail id
 		final String password = "lachimachidoo"; // correct password for gmail
 													// id
-		// final String toEmail = newproduct.getVendor().getEmail();
+		 final String toEmail = newproduct.getVendor().getEmail();
 
 		// create Authenticator object to pass in Session.getInstance argument
 		Authenticator auth = new Authenticator() {
@@ -75,10 +76,9 @@ public class AdminController {
 		// vendorService.getVendorByProductId(Long.parseLong(id));
 
 		Session session = Session.getInstance(EmailSettings.getEmailProperties(), auth);
-		// EmailUtil.sendEmail(session, toEmail, " Notification " +
-		// newproduct.getVendor().getFirstName(),
-		// newproduct.getVendor().getFirstName()+"Your Products you Posted on
-		// E-selling have been Approved. ");
+		 EmailUtil.sendEmail(session, toEmail, " Notification " +
+		 newproduct.getVendor().getFirstName(),
+		 newproduct.getVendor().getFirstName()+"Your Products you Posted on E-selling have been Approved. ");
 
 		return "redirect:/pendingProducts";
 	}

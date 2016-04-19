@@ -68,21 +68,7 @@
 							<li><a href="#">Shirts</a></li>
 
 						</ul>
-					</nav>
-
-					<select>
-						<option>BAGS</option>
-						<option>Jackets</option>
-						<option>ACCESORIES</option>
-						<option>CATEGORIES</option>
-						<option>Manufacters</option>
-						<option>Sale</option>
-						<option>Blog</option>
-						<option>Dresses</option>
-						<option>Jewelry</option>
-						<option>ShOES</option>
-						<option>Shirts</option>
-					</select>
+					</nav>				
 				</div>
 			</div>
 		</div>

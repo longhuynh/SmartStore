@@ -21,14 +21,6 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
 
-	<definition name="searchLayout" template="/WEB-INF/tiles/template/searchLayout.jsp">
-		<put-attribute name="title" value="Sample Title" />
-		<put-attribute name="tagline" value="" />
-		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
-	</definition>
-
 	<definition name="adminLayout" template="/WEB-INF/tiles/template/adminLayout.jsp">
 		<put-attribute name="title" value="Sample Title" />
 		<put-attribute name="tagline" value="" />
@@ -37,7 +29,7 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
 
-	<definition name="venderLayout" template="/WEB-INF/tiles/template/venderLayout.jsp">
+	<definition name="vendorLayout" template="/WEB-INF/tiles/template/vendorLayout.jsp">
 		<put-attribute name="title" value="Sample Title" />
 		<put-attribute name="tagline" value="" />
 		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
@@ -54,12 +46,13 @@
 		<put-attribute name="title" value="Max Shop" />
 		<put-attribute name="body" value="/WEB-INF/jsp/CustomerSignUp.jsp" />
 	</definition>
+	
 	<definition name="VendorSignUp" extends="baseLayout">
 		<put-attribute name="title" value="Max Shop" />
 		<put-attribute name="body" value="/WEB-INF/jsp/VendorSignUp.jsp" />
 	</definition>
 
-	<definition name="searchProducts" extends="searchLayout">
+	<definition name="searchProducts" extends="baseLayout">
 		<put-attribute name="title" value="SearchProducts" />
 		<put-attribute name="body" value="/WEB-INF/jsp/searchProducts.jsp" />
 	</definition>
@@ -80,12 +73,12 @@
 		<put-attribute name="title" value="PendingProducts" />
 		<put-attribute name="body" value="/WEB-INF/jsp/pendingProducts.jsp" />
 	</definition>
-	<definition name="VendorPage" extends="venderLayout">
+	<definition name="VendorPage" extends="vendorLayout">
 		<put-attribute name="title" value="Vendor" />
 		<put-attribute name="body" value="/WEB-INF/jsp/VendorPage.jsp" />
 	</definition>
 
-	<definition name="addProduct" extends="venderLayout">
+	<definition name="addProduct" extends="vendorLayout">
 		<put-attribute name="title" value="Vendor" />
 		<put-attribute name="body" value="/WEB-INF/jsp/addProduct.jsp" />
 	</definition>
@@ -100,7 +93,7 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
 	</definition>
 
-	<definition name="myProducts" extends="venderLayout">
+	<definition name="myProducts" extends="vendorLayout">
 		<put-attribute name="title" value="Payment" />
 		<put-attribute name="body" value="/WEB-INF/jsp/myProducts.jsp" />
 	</definition>
