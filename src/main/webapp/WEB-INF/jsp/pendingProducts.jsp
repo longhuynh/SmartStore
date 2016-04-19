@@ -2,15 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-<title>Products</title>
-</head>
-<body>
-	
+
 		<div class="container">
 				<c:if test="${not empty noproduct}">
 <div class="alert alert-success"  >
@@ -61,5 +53,3 @@
 		</div>
 
 	</div>
-</body>
-</html>

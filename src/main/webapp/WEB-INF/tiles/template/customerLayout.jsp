@@ -57,7 +57,7 @@
 				<div class="span10 right">
 					<div class="social-strip">
 						<ul>
-							<li><a href="#" class="account">Hello ${customer.firstName}</a></li>
+							<li><a href=" <spring:url value="/home" />" class="account">Hello ${customer.firstName}</a></li>
 							<li><a href="#" class="check">Checkout</a></li>
 						</ul>
 					</div>
