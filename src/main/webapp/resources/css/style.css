@@ -384,7 +384,7 @@ header nav > ul > li ul li a{display: block;}
 #check-accordion form input[type='submit'] {  -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; -ms-transition: 0.5s; transition:  0.5s; background: #f71919; padding: 10px 15px; border: 0px; color: #ffffff; font:700 14px 'Arial' sans-serif; }
 #check-accordion form input[type='submit']:hover{background: #cc2828;}
 
-#check-accordion .information form a { font:13px 'arial' sans-serif; display: block; text-decoration: underline; margin-bottom: 14px;}
+#check-accordion .information form a { font:13px 'arial' sans-serif; display: block; text-decoration: underline; margin-bottom: 20px;}
 #check-accordion .register form a { text-align: right ; font:13px 'arial' sans-serif; display: block; text-decoration: underline; margin-bottom: 15px;}
 #check-accordion .register  input[type='submit'] { background: #4d4d4d; float: right;}
 #check-accordion .register  input[type='submit']:hover {background: #262626;}

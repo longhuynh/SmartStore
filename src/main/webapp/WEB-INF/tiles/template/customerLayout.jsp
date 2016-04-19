@@ -45,7 +45,42 @@
 </head>
 <body>
 	<!-- HEADER -->
-	<tiles:insertAttribute name="header" />
+
+	<div class="header-bar">
+		<div class="container">
+			<div class="row">
+				<div class="pric-icon span2">
+					<a href="#" class="active">&#x20ac;</a> <a href="#">&#xa3;</a> <a
+						href="#">&#36;</a>
+				</div>
+
+				<div class="span10 right">
+					<div class="social-strip">
+						<ul>
+							<li><a href="#" class="account">Hello ${customer.firstName}</a></li>
+							<li><a href="#" class="check">Checkout</a></li>
+						</ul>
+					</div>
+
+					<div class="languages">
+						<a href="#" class="english active"><img
+							src="resources/images/english.png" alt=""></a> <a href="#"
+							class="german"><img src="resources/images/german.png" alt=""></a>
+						<a href="#" class="japan"><img
+							src="resources/images/japan.png" alt=""></a> <a href="#"
+							class="turkish"><img src="resources/images/turkish.png"
+							alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="header">
+
+		<tiles:insertAttribute name="header" />
+	</div>
+
 	<!-- HEADER -->
 
 	<!-- MENU -->
@@ -55,7 +90,7 @@
 				<div class="span12">
 					<nav class="desktop-nav">
 						<ul class="clearfix">
-							<li><a href="#">Hello ${vendor.firstName} </a></li>
+							<li><a href="#">Checkout cart </a></li>
 							
 						</ul>
 					</nav>

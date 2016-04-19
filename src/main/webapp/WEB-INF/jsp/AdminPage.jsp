@@ -7,15 +7,17 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Admin Page</title>
 
-</head>
-<body>
-
-				
-</body>
-</html>
+<!-- BAR -->
+<div class="bar-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="title-bar">
+					<h1>ADMIN</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- BAR -->
