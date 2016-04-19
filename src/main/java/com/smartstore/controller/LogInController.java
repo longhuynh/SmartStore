@@ -1,6 +1,7 @@
 package com.smartstore.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.smartstore.domain.Product;
 import com.smartstore.service.AdminService;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CredentialsService;
@@ -65,14 +67,21 @@ public class LogInController {
 
 		session.setAttribute("name", principal.getName());
 		String name = principal.getName();
-		
+
 		if (request.isUserInRole("ROLE_VENDOR")) {
 			long vendorId = vendorService.getVendorByUserName(name).getId();
 			model.addAttribute("vendor", vendorService.getVendorByUserName(name));
-			model.addAttribute("vendorProducts", productService.getAllProductsByVendorId(vendorId));			
+			model.addAttribute("vendorProducts", productService.getAllProductsByVendorId(vendorId));
 			return "VendorPage";
 		} else if (request.isUserInRole("ROLE_ADMIN")) {
 			model.addAttribute("admin", adminService.getAdminByUserName(name));
+			List<Product> products = productService.findPendingProducts();
+			model.addAttribute("products", products);
+
+			if (products.isEmpty()) {
+				model.addAttribute("noproduct", "empty");
+			}
+
 			return "AdminPage";
 		} else {
 			model.addAttribute("customer", customerService.getCustomerByUserName(name));

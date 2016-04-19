@@ -92,9 +92,7 @@
 
 					<nav class="desktop-nav">
 						<ul class="clearfix">
-							<li><a href=" <spring:url value="/pendingProducts" />">Approve
-									Products </a></li>
-
+							
 						</ul>
 					</nav>
 

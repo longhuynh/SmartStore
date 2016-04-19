@@ -3,66 +3,41 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Search Products</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style type="text/css"></style>
-<link href="resources/css/all.css" rel="stylesheet" type="text/css" />
-<link href="resources/css/index.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-</head>
-<body>
-	<!-- Header goes here--->
-	
-
-	<!--Main Content goes here --->
-<div class="container">
-				<c:if test="${not empty noproduct}">
-<div class="alert alert-success"  >
-<spring:message code="noproductsavailable"/><br />
-</div>
-</c:if>
-</div>	
-	
-	<div id="main">
-
-		<div id="products">
-			<ul>
-				<c:forEach items="${searchproducts}" var="searchproduct">
-					<li id="product1" class="products">
-						<div class="innerproduct">
-							<div>
-								<div class="titleOptions">
-									<a href="<spring:url value="/products/product?id=${searchproduct.productId}" />"> <img
-										src="<c:url value="${searchproduct.productPath}"></c:url>"
-										height="246px" width="190px">
-									</a>
-								</div>
-								<div class="productinfo">
-									<div class="productdescription">
-										<a href="<spring:url value="/products/product?id=${searchproduct.productId}" />"> <span class="large bold">
-												${searchproduct.productName} </span>
-										</a>
-									</div>
-									<div class="productprice">
-										<a href="<spring:url value="/products/product?id=${searchproduct.productId}" />"> <span class="bold large red">$${searchproduct.unitPrice }</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
+<!-- PRODUCT-OFFER -->
+<div class="product_wrap">
+	<div class="container">
+		<div class="row heading-wrap">
+			<div class="span12 heading">
+				<h2>
+					Products <span></span>
+				</h2>
+			</div>
 		</div>
+		<div class="row">
+			<c:forEach items="${products}" var="product">
+				<div class="span3 product">
 
+					<div>
+						<figure>
+							<a
+								href="<spring:url value="/products/product?id=${product.productId}" />">
+								<img src="<c:url value="${product.productPath}"></c:url>" alt="">
+							</a>
+
+						</figure>
+						<div class="detail">
+							<span>$244.00</span> <a
+								href="<spring:url value="/products/product?id=${product.productId}" />">
+								<h4>${product.productName}</h4>
+							</a>
+							
+						</div>
+					</div>
+
+				</div>
+
+			</c:forEach>
+		</div>
 	</div>
-
-	<!--Footer goes here --->
-	
-</body>
-
-</html>
+</div>
+<!-- PRODUCT-OFFER -->

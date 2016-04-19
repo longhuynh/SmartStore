@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.smartstore.domain.Admin;
+import com.smartstore.domain.Customer;
 import com.smartstore.domain.Product;
+import com.smartstore.domain.Vendor;
 import com.smartstore.service.AdminService;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CustomerService;
@@ -37,43 +40,55 @@ public class SearchController {
 	@Autowired
 	CategoryService categoryService;
 
-	@RequestMapping(value = "/productsearch")
-	public String getItemsByCategory(Model model, @RequestParam("categoryId") String categoryId,
-			@RequestParam("search_text") String text, Principal principal) {
+	@RequestMapping(value = "/search")
+	public String search(Model model, @RequestParam("key") String text, Principal principal) {
 
-		List<Product> p = productService.findProductsByCategory(Long.parseLong(categoryId));
-		if (p.isEmpty()) {
+		List<Product> products = productService.findApprovedProducts();
+		if (products.isEmpty()) {
 			model.addAttribute("noproduct", "true");
 		}
-		model.addAttribute("searchproducts", p);
+		model.addAttribute("products", products);
 
 		if (!text.equals("")) {
 			List<Product> e = productService.findProductsByName(text);
-			model.addAttribute("searchproducts", e);
+			model.addAttribute("products", e);
 			if (e.isEmpty()) {
 				model.addAttribute("noproduct", "true");
 			}
 		}
 
-		if (principal == null) {
-			if (!text.equals("")) {
-				model.addAttribute("searchproducts", productService.findProductsByName(text));
-			}
+		return "search";
+	}
+	
+	@RequestMapping(value = "/category")
+	public String searchByCategory(Model model, @RequestParam("id") String categoryId, Principal principal) {
 
-			return "randomSearch";
+		List<Product> products = productService.findProductsByCategory(Long.parseLong(categoryId));
+		if (products.isEmpty()) {
+			model.addAttribute("noproduct", "true");
 		}
+		
+		model.addAttribute("products", products);		
 
-		return "searchProducts";
-
+		return "search";
 	}
 
 	@ModelAttribute
 	public void init(Model model, Principal principal, HttpSession session) {	
 		model.addAttribute("categories", categoryService.findAll());
 		if (principal != null) {
-			model.addAttribute("admin", adminService.getAdminByUserName(principal.getName()));
-			model.addAttribute("vendor", vendorService.getVendorByUserName(principal.getName()));
-			model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
+			Admin admin = adminService.getAdminByUserName(principal.getName());
+			if(admin != null)
+				model.addAttribute("account",admin);
+			
+			Vendor vendor = vendorService.getVendorByUserName(principal.getName());
+			if(vendor != null)
+				model.addAttribute("account",vendor);
+			
+			Customer customer = customerService.getCustomerByUserName(principal.getName());
+			if(customer != null)
+				model.addAttribute("account",customer);
+			
 		}
 	}
 }

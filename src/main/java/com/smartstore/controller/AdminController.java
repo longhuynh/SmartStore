@@ -36,18 +36,6 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-	@RequestMapping(value = "/pendingProducts", method = RequestMethod.GET)
-	public String pendingProducts(Product product, Model model) {
-		List<Product> products = productService.findPendingProducts();
-		model.addAttribute("products", products);
-
-		if (products.isEmpty()) {
-			model.addAttribute("noproduct", "empty");
-		}
-
-		return "pendingProducts";
-	}
-
 	@RequestMapping(value = "/approveProducts")
 	public String approveProduct(@ModelAttribute Product product, @RequestParam("id") String id, Model model,
 			Principal principal) {

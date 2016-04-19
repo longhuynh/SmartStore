@@ -1,16 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-
-
-<div class="container">
-	<c:if test="${not empty noproduct}">
-		<div class="alert alert-success">
-			<spring:message code="NoProductstobeApproved" />
-			<br />
-		</div>
-	</c:if>
-</div>
 
 <!-- PRODUCT-OFFER -->
 <div class="product_wrap">
@@ -39,12 +31,10 @@
 								href="<spring:url value="/products/product?id=${product.productId}" />">
 								<h4>${product.productName}</h4>
 							</a>
-							<div class="buttons">
-                                            <a href="<spring:url value="/approveProducts?id=${product.productId}" />" class="wish big-button">Approve</a>
-                                         
-                                            <a href="<spring:url value="/disapproveProduct?id=${product.productId}" />" class="compare big-button">Disapprove</a>
-                                        </div>
-							
+							<div class="icon">
+								<a href="<c:url value="/cart/add/${product.productId}"/> "
+									class="one tooltip " title="Add to cart"></a>
+							</div>
 						</div>
 					</div>
 

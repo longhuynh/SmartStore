@@ -99,7 +99,7 @@
 					<nav class="desktop-nav">
 						<ul class="clearfix">
 							<c:forEach var="category" items="${categories}">
-								<li><a href="#">${category.categoryName}</a></li>
+								<li><a href="<spring:url value="/category?id=${category.categoryId}" />">${category.categoryName}</a></li>
 
 							</c:forEach>
 						</ul>

@@ -57,27 +57,16 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/AdminSignUp.jsp" />
 	</definition>
 
-	<definition name="searchProducts" extends="baseLayout">
+	<definition name="search" extends="baseLayout">
 		<put-attribute name="title" value="SearchProducts" />
-		<put-attribute name="body" value="/WEB-INF/jsp/searchProducts.jsp" />
+		<put-attribute name="body" value="/WEB-INF/jsp/search.jsp" />
 	</definition>
-
-	<definition name="randomSearch" extends="baseLayout">
-		<put-attribute name="title" value="My Home" />
-		<put-attribute name="body" value="/WEB-INF/jsp/randomSearch.jsp" />
-	</definition>
-
-
 
 	<definition name="CustomerPage" extends="customerLayout">
 		<put-attribute name="title" value="Customers" />
 		<put-attribute name="body" value="/WEB-INF/jsp/CustomerPage.jsp" />
 	</definition>
 
-	<definition name="pendingProducts" extends="adminLayout">
-		<put-attribute name="title" value="PendingProducts" />
-		<put-attribute name="body" value="/WEB-INF/jsp/pendingProducts.jsp" />
-	</definition>
 	<definition name="VendorPage" extends="vendorLayout">
 		<put-attribute name="title" value="Vendor" />
 		<put-attribute name="body" value="/WEB-INF/jsp/VendorPage.jsp" />
