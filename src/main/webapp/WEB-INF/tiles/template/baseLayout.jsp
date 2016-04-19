@@ -91,7 +91,7 @@
 					<nav class="desktop-nav">
 						<ul class="clearfix">
 						 <c:forEach var="category" items="${categories}">
-						 <li><a href="#">${category.categoryId}">${category.categoryName}</a></li>
+						 <li><a href="#">${category.categoryName}</a></li>
 						
 						 </c:forEach>
 						</ul>
