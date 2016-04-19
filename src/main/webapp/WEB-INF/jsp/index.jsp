@@ -101,18 +101,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom prettyPhoto"></a>
-							<a href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product1.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-						<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -123,18 +119,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product2.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-						<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -145,18 +137,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product3.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -167,17 +155,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product4.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to cart"></a> 
+							<a href="#" class="one tooltip" title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -188,18 +173,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product5.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-						<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -210,18 +191,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product6.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -232,18 +209,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product7.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a
-								href="#" class="one tooltip " title="Add to cart"></a>
+							<a href="#" class="one tooltip " title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
@@ -254,17 +227,14 @@
 
 				<div>
 					<figure>
-						<a href="#"><img src="http://placehold.it/270x186" alt=""></a>
-						<div class="overlay">
-							<a href="http://placehold.it/270x186" class="zoom"></a> <a
-								href="#" class="link"></a>
-						</div>
+						<a href="#"><img src="resources/images/product8.png" alt=""></a>
+
 					</figure>
 					<div class="detail">
 						<span>$244.00</span>
 						<h4>Brown Wood Chair</h4>
 						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to cart"></a> 
+							<a href="#" class="one tooltip" title="Add to cart"></a>
 						</div>
 					</div>
 				</div>
