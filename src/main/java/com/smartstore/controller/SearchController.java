@@ -68,17 +68,12 @@ public class SearchController {
 	}
 
 	@ModelAttribute
-	public void init(Model model, Principal principal, HttpSession session) {
-		// model.addAttribute("products",
-		// productService.findApprovedProducts());
+	public void init(Model model, Principal principal, HttpSession session) {	
 		model.addAttribute("categories", categoryService.findAll());
-		// model.addAttribute("searchproducts",null);
 		if (principal != null) {
-
 			model.addAttribute("admin", adminService.getAdminByUserName(principal.getName()));
 			model.addAttribute("vendor", vendorService.getVendorByUserName(principal.getName()));
 			model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
 		}
-
 	}
 }

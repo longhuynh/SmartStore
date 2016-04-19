@@ -81,9 +81,14 @@ public class LogInController {
 	}
 
 	@ModelAttribute
-	public void init(Model model) {
+	public void init(Model model, Principal principal, HttpSession session) {
 		model.addAttribute("categories", categoryService.findAll());
 		model.addAttribute("products", productService.findApprovedProducts());
+		if (principal != null) {
+			model.addAttribute("admin", adminService.getAdminByUserName(principal.getName()));
+			model.addAttribute("vendor", vendorService.getVendorByUserName(principal.getName()));
+			model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
+		}
 	}
 
 }

@@ -91,203 +91,38 @@
 		<div class="row heading-wrap">
 			<div class="span12 heading">
 				<h2>
-					Featured Products <span></span>
+					Products <span></span>
 				</h2>
 			</div>
 		</div>
 		<div class="row">
+			<c:forEach items="${products}" var="product">
+				<div class="span3 product">
 
-			<div class="span3 product">
+					<div>
+						<figure>
+							<a
+								href="<spring:url value="/products/product?id=${product.productId}" />">
+								<img src="<c:url value="${product.productPath}"></c:url>" alt="">
+							</a>
 
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product1.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
+						</figure>
+						<div class="detail">
+							<span>$244.00</span> <a
+								href="<spring:url value="/products/product?id=${product.productId}" />">
+								<h4>${product.productName}</h4>
+							</a>
+							<div class="icon">
+								<a href="<c:url value="/cart/add/${product.productId}"/> "
+									class="one tooltip " title="Add to cart"></a>
+							</div>
 						</div>
 					</div>
+
 				</div>
 
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product2.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product3.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product4.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product5.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product6.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product7.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip " title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="span3 product">
-
-				<div>
-					<figure>
-						<a href="#"><img src="resources/images/product8.png" alt=""></a>
-
-					</figure>
-					<div class="detail">
-						<span>$244.00</span>
-						<h4>Brown Wood Chair</h4>
-						<div class="icon">
-							<a href="#" class="one tooltip" title="Add to cart"></a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
+			</c:forEach>
 		</div>
 	</div>
 </div>
 <!-- PRODUCT-OFFER -->
-
-<%-- 
-	
-	<div class="container">
-				<c:if test="${not empty successful}">
-<div class="alert alert-success"  >
-<spring:message code="successful"/><br />
-</div>
-</c:if>
-</div>
-	<div id="main">
-
-		<div id="products">
-			<ul>
-				<c:forEach items="${products}" var="product">
-					<li id="product1" class="products">
-						<div class="innerproduct" style="width:180px;">
-							<div>
-								<div class="titleOptions">
-									<a href="<spring:url value="/products/product?id=${product.productId}" />"> 
-										<img src="<c:url value="${product.productPath}"></c:url>" alt="image"  height="246px" width="190px"/>  
-									</a>
-								</div>
-								<div class="productinfo">
-									<div class="productdescription">
-										<a href="<spring:url value="/products/product?id=${product.productId}" />"> <span class="large bold">
-												${product.productName} </span>
-										</a>
-									</div>
-									<div class="productprice">
-										<a href="<spring:url value="/products/product?id=${product.productId}" />"> <span class="bold large red"><fmt:formatNumber value="${product.unitPrice}" type="currency"/></span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</c:forEach>
-			</ul>
-		</div>
-
-
-
-	</div>
-
-	 --%>

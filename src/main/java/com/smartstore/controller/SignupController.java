@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.smartstore.common.SystemConstant;
 import com.smartstore.domain.Admin;
 import com.smartstore.domain.Credentials;
 import com.smartstore.domain.Customer;
@@ -33,9 +34,6 @@ import com.smartstore.smtp.EmailUtil;
 
 @Controller
 public class SignupController {
-	final String fromEmail = "pmesellingroup3@gmail.com"; 
-	final String password = "lachimachidoo"; 
-
 	@Autowired
 	AdminService adminService;
 	
@@ -88,7 +86,7 @@ public class SignupController {
 		Authenticator auth = new Authenticator() {
 			// override the getPasswordAuthentication method
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(fromEmail, password);
+				return new PasswordAuthentication(SystemConstant.EMAIL, SystemConstant.EMAIL_PASSWORD);
 			}
 		};
 
@@ -132,7 +130,7 @@ public class SignupController {
 		Authenticator auth = new Authenticator() {
 			// override the getPasswordAuthentication method
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(fromEmail, password);
+				return new PasswordAuthentication(SystemConstant.EMAIL, SystemConstant.EMAIL_PASSWORD);
 			}
 		};
 
@@ -177,7 +175,7 @@ public class SignupController {
 		Authenticator auth = new Authenticator() {
 			// override the getPasswordAuthentication method
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(fromEmail, password);
+				return new PasswordAuthentication(SystemConstant.EMAIL, SystemConstant.EMAIL_PASSWORD);
 			}
 		};
 

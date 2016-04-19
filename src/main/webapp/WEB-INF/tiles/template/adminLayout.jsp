@@ -58,7 +58,7 @@
 					<div class="social-strip">
 						<ul>
 							<li><a href=" <spring:url value="/home" />" class="account">Hello ${admin.firstName}</a></li>
-							<li><a href="#" class="check">Checkout</a></li>
+							<li><a href=" <spring:url value="/logout" />" class="check">Log out</a></li>
 						</ul>
 					</div>
 
@@ -98,9 +98,6 @@
 						</ul>
 					</nav>
 
-					<select>
-						<option>Add New Product</option>
-					</select>
 				</div>
 			</div>
 		</div>
