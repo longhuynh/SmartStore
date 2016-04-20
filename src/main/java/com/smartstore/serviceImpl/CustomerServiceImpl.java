@@ -22,11 +22,18 @@ public class CustomerServiceImpl implements CustomerService {
 	public void addNewCustomer(Customer customer) {
 		credentialRepository.save(customer.getCredentials());
 		customerRepository.save(customer);
+		
 	}
 
 	public Customer getCustomerByUserName(String name) {
 
 		return customerRepository.findCustomerByUserName(name);
+	}
+
+	@Override
+	public void save(Customer customer) {
+		
+		customerRepository.save(customer);
 	}
 
 }

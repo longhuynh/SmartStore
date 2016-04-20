@@ -50,3 +50,5 @@ Temporary Items
 .classpath
 *.classpath
 .classpath
+src/main/webapp/resources/images/Laptop.png
+*.png

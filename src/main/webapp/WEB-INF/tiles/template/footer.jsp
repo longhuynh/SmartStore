@@ -83,8 +83,8 @@
 					</div>
 					<div class="span5">
 						<div class="social-icon">
-							<a class="rss" href=""></a> <a class="twet" href=""></a> <a
-								class="fb" href=""></a> <a class="google" href=""></a> <a
+							<a class="rss" href=""></a> <a class="twet" href="https://about.twitter.com"></a> <a
+								class="fb" href="https://www.facebook.com"></a> <a class="google" href="https://www.google.com"></a> <a
 								class="pin" href=""> </a>
 						</div>
 					</div>
