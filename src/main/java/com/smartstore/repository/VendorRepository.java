@@ -12,10 +12,4 @@ public interface VendorRepository extends CrudRepository<Vendor, Long> {
 
 	@Query("SELECT v FROM Vendor v WHERE v.credentials.username = :name")
 	public Vendor findVendorByUserName(@Param(value = "name") String name);
-
-	/*
-	 * @Query(
-	 * "SELECT vendor FROM Vendor v  INNER JOIN v.products product WHERE WHERE p.id= :id"
-	 * ) public Vendor getVendorByProductId(@Param(value = "id")Long id);
-	 */
 }

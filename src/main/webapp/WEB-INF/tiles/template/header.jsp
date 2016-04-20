@@ -33,8 +33,8 @@
 			<div class="span2">
 				<div class="cart">
 					<ul>
-						<li class="first"><a href="#"></a><span></span></li>
-						<li>0 item(s) - $0.00</li>
+						<li class="first"><a href=" <spring:url value="/checkout" />"></a><span></span></li>
+						<li>${cart.numberOfProducts} item(s)</li>
 					</ul>
 				</div>
 			</div>

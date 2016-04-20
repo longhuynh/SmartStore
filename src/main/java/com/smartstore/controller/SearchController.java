@@ -78,16 +78,20 @@ public class SearchController {
 		model.addAttribute("categories", categoryService.findAll());
 		if (principal != null) {
 			Admin admin = adminService.getAdminByUserName(principal.getName());
-			if(admin != null)
+			if(admin != null){
 				model.addAttribute("account",admin);
+			}
 			
 			Vendor vendor = vendorService.getVendorByUserName(principal.getName());
-			if(vendor != null)
+			if(vendor != null){				
 				model.addAttribute("account",vendor);
+			}
 			
 			Customer customer = customerService.getCustomerByUserName(principal.getName());
-			if(customer != null)
+			if(customer != null){
+				session.setAttribute("canaddtocart", "true");
 				model.addAttribute("account",customer);
+			}
 			
 		}
 	}

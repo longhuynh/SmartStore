@@ -32,8 +32,8 @@ public class User implements Serializable {
 	@Email
 	@NotEmpty(message = "{User.Email}")
 	private String email;
-	@NotEmpty(message = "{User.Phone}")
-	@Pattern(regexp = "\\d{10}", message = "{Pattern.phone}")
+
+	@Pattern(regexp = "\\d{10}", message = "{Pattern.Phone}")
 	private String phone;
 
 	private String password;
@@ -121,5 +121,4 @@ public class User implements Serializable {
 	public void setCreditCard(CreditCard creditCard) {
 		this.creditCard = creditCard;
 	}
-
 }

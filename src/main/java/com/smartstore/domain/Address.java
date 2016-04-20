@@ -20,8 +20,8 @@ public class Address implements Serializable {
 	private String street;
 	@NotEmpty(message = "{User.State}")
 	private String state;
-	@NotEmpty(message = "{User.ZipCode}")
-	@Pattern(regexp = "^\\d{5}(-\\d{4})?$", message = "{Pattern.zipcode}")
+	
+	@Pattern(regexp = "^\\d{5}(-\\d{4})?$", message = "{Pattern.ZipCode}")
 	private String zipcode;
 
 	public long getAddressId() {

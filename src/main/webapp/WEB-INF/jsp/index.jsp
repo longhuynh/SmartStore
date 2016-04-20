@@ -102,20 +102,25 @@
 					<div>
 						<figure>
 							<a
-								href="<spring:url value="/products/product?id=${product.productId}" />">
+								href="<spring:url value="/product?id=${product.productId}" />">
 								<img src="<c:url value="${product.productPath}"></c:url>" alt="">
 							</a>
 
 						</figure>
 						<div class="detail">
 							<span>$244.00</span> <a
-								href="<spring:url value="/products/product?id=${product.productId}" />">
+								href="<spring:url value="/product?id=${product.productId}" />">
 								<h4>${product.productName}</h4>
 							</a>
-							<div class="icon">
-								<a href="<c:url value="/cart/add/${product.productId}"/> "
-									class="one tooltip " title="Add to cart"></a>
-							</div>
+
+							<c:if test="${not empty canaddtocart}">
+								<div class="icon">
+
+									<a href="<c:url value="/cart/add/${product.productId}"/> "
+										class="one tooltip " title="Add to cart"></a>
+								</div>
+							</c:if>
+
 						</div>
 					</div>
 

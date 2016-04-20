@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smartstore.domain.Product;
 import com.smartstore.service.CategoryService;
@@ -32,43 +30,21 @@ public class VendorController {
 	@RequestMapping(value = "/myProducts", method = RequestMethod.GET)
 	public String getProductsById(Model model, Principal principal) {
 		String name = principal.getName();
-		List<Product> myProducts = productService
-				.getAllProductsByVendorId(vendorService.getVendorByUserName(name).getId());
+		long vendorId = vendorService.getVendorByUserName(name).getId();
+		List<Product> products = productService.getAllProductsByVendorId(vendorId);
 
-		if (myProducts.isEmpty()) {
-			// System.out.println("true");
+		if (products.isEmpty()) {
 			model.addAttribute("emptylist", "true");
 		}
 
-		model.addAttribute("vendorProducts", myProducts);
+		model.addAttribute("products", products);
 
 		return "myProducts";
 	}
 
 	@RequestMapping("/vendor")
 	public String getVendorPage(Model model) {
-
 		return "VendorPage";
-	}
-
-	@RequestMapping(value = "/deleteProducts", method = RequestMethod.GET)
-	public String deleteProduct(@ModelAttribute Product product, @RequestParam("id") String id, Model model,
-			Principal principal, RedirectAttributes redirectAttributes) {
-
-		productService.deleteProducts(Long.parseLong(id));
-
-		String name = principal.getName();
-
-		List<Product> myProducts = productService
-				.getAllProductsByVendorId(vendorService.getVendorByUserName(name).getId());
-
-		if (myProducts.isEmpty()) {
-			redirectAttributes.addFlashAttribute("emptylist", "true");
-		}
-
-		redirectAttributes.addFlashAttribute("vendorProducts", myProducts);
-
-		return "redirect:/myProducts";
 	}
 
 	@ModelAttribute

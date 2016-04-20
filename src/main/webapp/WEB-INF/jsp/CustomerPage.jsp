@@ -16,6 +16,49 @@
 </div>
 <!-- BAR -->
 
+<!-- PRODUCT-OFFER -->
+<div class="product_wrap">
+	<div class="container">
+		<div class="row heading-wrap">
+			<div class="span12 heading">
+				<h2>
+					Products <span></span>
+				</h2>
+			</div>
+		</div>
+		<div class="row">
+			<c:forEach items="${products}" var="product">
+				<div class="span3 product">
+
+					<div>
+						<figure>
+							<a
+								href="<spring:url value="/product?id=${product.productId}" />">
+								<img src="<c:url value="${product.productPath}"></c:url>" alt="">
+							</a>
+
+						</figure>
+						<div class="detail">
+							<span>$244.00</span> <a
+								href="<spring:url value="/product?id=${product.productId}" />">
+								<h4>${product.productName}</h4>
+							</a>
+							<div class="icon">
+								<a href="<c:url value="/cart/add/${product.productId}"/> "
+									class="one tooltip " title="Add to cart"></a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</c:forEach>
+		</div>
+	</div>
+</div>
+<!-- PRODUCT-OFFER -->
+
+<%-- 
 <div id="main">
 
 	<div id="products">
@@ -26,7 +69,7 @@
 						<div>
 							<div class="titleOptions">
 								<a
-									href="<spring:url value="/products/product?id=${product.productId}" />">
+									href="<spring:url value="/product?id=${product.productId}" />">
 									<img src="<c:url value="${product.productPath}"></c:url>"
 									alt="image" height="246px" width="190px" />
 								</a>
@@ -34,13 +77,13 @@
 							<div class="productinfo">
 								<div class="productdescription">
 									<a
-										href="<spring:url value="/products/product?id=${product.productId}" />">
+										href="<spring:url value="/product?id=${product.productId}" />">
 										<span class="large bold"> ${product.productName} </span>
 									</a>
 								</div>
 								<div class="productprice">
 									<a
-										href="<spring:url value="/products/product?id=${product.productId}" />">
+										href="<spring:url value="/product?id=${product.productId}" />">
 										<span class="bold large red"><fmt:formatNumber
 												value="${product.unitPrice}" type="currency" /></span>
 									</a>
@@ -59,3 +102,4 @@
 
 
 
+ --%>

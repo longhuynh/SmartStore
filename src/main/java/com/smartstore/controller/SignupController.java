@@ -65,9 +65,9 @@ public class SignupController {
 			return "AdminSignUp";
 		}
 
-		List<Credentials> userName = credentialService.getAll();
+		List<Credentials> credentials = credentialService.getAll();
 		admin.getCredentials().getUsername().toLowerCase();
-		for (Credentials c : userName) {
+		for (Credentials c : credentials) {
 			if (c.getUsername().equals(admin.getCredentials().getUsername())) {
 				model.addAttribute("username", "True");
 				return "AdminSignUp";
@@ -109,9 +109,9 @@ public class SignupController {
 			return "CustomerSignUp";
 		}
 
-		List<Credentials> userName = credentialService.getAll();
+		List<Credentials> credentials = credentialService.getAll();
 		customer.getCredentials().getUsername().toLowerCase();
-		for (Credentials c : userName) {
+		for (Credentials c : credentials) {
 			if (c.getUsername().equals(customer.getCredentials().getUsername())) {
 				model.addAttribute("username", "True");
 				return "CustomerSignUp";
@@ -154,9 +154,9 @@ public class SignupController {
 		}
 		vendor.getCredentials().getUsername().toLowerCase();
 
-		List<Credentials> userName = credentialService.getAll();
+		List<Credentials> credentials = credentialService.getAll();
 
-		for (Credentials c : userName) {
+		for (Credentials c : credentials) {
 			if (c.getUsername().equals(vendor.getCredentials().getUsername())) {
 				model.addAttribute("username", "True");
 				return "VendorSignUp";

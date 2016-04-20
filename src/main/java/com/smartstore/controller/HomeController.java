@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.smartstore.domain.Admin;
+import com.smartstore.domain.Cart;
 import com.smartstore.domain.Customer;
 import com.smartstore.domain.Vendor;
 import com.smartstore.service.AdminService;
@@ -21,6 +22,9 @@ import com.smartstore.service.VendorService;
 
 @Controller
 public class HomeController {
+	@Autowired
+	private Cart cart;
+	
 	@Autowired
 	AdminService adminService;
 	
@@ -45,18 +49,24 @@ public class HomeController {
 	public void init(Model model, Principal principal, HttpSession session) {
 		model.addAttribute("products", productService.findApprovedProducts());
 		model.addAttribute("categories", categoryService.findAll());
+		session.setAttribute("cart", cart);
+		
 		if (principal != null) {
 			Admin admin = adminService.getAdminByUserName(principal.getName());
-			if(admin != null)
+			if(admin != null){
 				model.addAttribute("account",admin);
+			}
 			
 			Vendor vendor = vendorService.getVendorByUserName(principal.getName());
-			if(vendor != null)
+			if(vendor != null){				
 				model.addAttribute("account",vendor);
+			}
 			
 			Customer customer = customerService.getCustomerByUserName(principal.getName());
-			if(customer != null)
+			if(customer != null){
+				session.setAttribute("canaddtocart", "true");
 				model.addAttribute("account",customer);
+			}
 			
 		}
 	}

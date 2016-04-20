@@ -56,7 +56,6 @@ public class CartController {
 
 	@ModelAttribute
 	public void init(Model model, HttpSession session, Principal principal) {
-		// model.addAttribute("cart", cart);
 		session.setAttribute("cart", cart);
 		model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
 	}

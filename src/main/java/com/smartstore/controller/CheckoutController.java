@@ -23,16 +23,13 @@ import com.smartstore.service.OrderService;
 
 @Controller
 @SessionAttributes(types = { ProductOrder.class })
-@RequestMapping("/cart/checkout")
+@RequestMapping("/checkout")
 public class CheckoutController {
 	@Autowired
 	private Cart cart;
 
 	@Autowired
 	private OrderService orderService;
-
-	/*@Autowired
-	private MyFinanceService myFinanceService;*/
 
 	@Autowired
 	CustomerService customerService;
@@ -61,14 +58,14 @@ public class CheckoutController {
 	@RequestMapping(method = RequestMethod.POST, params = "update")
 	public String update(@ModelAttribute ProductOrder productOrder) {
 		productOrder.updateOrderDetails();
-		return "cart/checkout";
+		return "checkout";
 	}
 
 	@RequestMapping(method = RequestMethod.POST, params = "order")
 	public String checkout(SessionStatus status, @Validated @ModelAttribute ProductOrder productOrder,
 			BindingResult errors) {
 		if (errors.hasErrors()) {
-			return "cart/checkout";
+			return "checkout";
 		} else {
 			this.orderService.store(productOrder);
 			status.setComplete(); // remove order from session
@@ -86,7 +83,9 @@ public class CheckoutController {
 
 	@ModelAttribute
 	public void init(Model model, Principal principal) {
-		//
+		String[] states = new String[] { "IA", "OH", "VA", "OK", "OR", "SC", "NY", "MD", "NH", "NV", "LA", "FL", "TX",
+		"UT" };
+		model.addAttribute("states", states);
 		model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
 		model.addAttribute("categories", categoryService.findAll());
 	}
