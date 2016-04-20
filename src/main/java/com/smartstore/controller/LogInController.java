@@ -18,7 +18,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import com.smartstore.domain.Product;
 import com.smartstore.service.AdminService;
 import com.smartstore.service.CategoryService;
-import com.smartstore.service.CredentialsService;
 import com.smartstore.service.CustomerService;
 import com.smartstore.service.ProductService;
 import com.smartstore.service.VendorService;
@@ -84,6 +83,7 @@ public class LogInController {
 
 			return "AdminPage";
 		} else {
+			model.addAttribute("products", productService.findApprovedProducts());
 			model.addAttribute("customer", customerService.getCustomerByUserName(name));
 			return "CustomerPage";
 		}
