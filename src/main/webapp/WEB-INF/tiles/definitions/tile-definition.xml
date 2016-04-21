@@ -106,4 +106,9 @@
 		<put-attribute name="title" value="Catagory" />
 		<put-attribute name="body" value="/WEB-INF/jsp/addCatagory.jsp" />
 	</definition>
+	
+	<definition name="404" extends="baseLayout">
+		<put-attribute name="title" value="Catagory" />
+		<put-attribute name="body" value="/WEB-INF/jsp/404.jsp" />
+	</definition>
 </tiles-definitions>

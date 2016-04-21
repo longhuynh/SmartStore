@@ -99,5 +99,4 @@ public class LogInController {
 			model.addAttribute("customer", customerService.getCustomerByUserName(principal.getName()));
 		}
 	}
-
 }

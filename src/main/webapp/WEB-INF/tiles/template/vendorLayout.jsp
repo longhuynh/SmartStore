@@ -95,8 +95,7 @@
 							<li><a href=" <spring:url value="/myProducts" />">View
 									My Products</a></li>
 									
-							<li><a href=" <spring:url value="/addCatagory" />">Add
-							        Catagory</a></li>
+						
 						</ul>
 					</nav>
 			

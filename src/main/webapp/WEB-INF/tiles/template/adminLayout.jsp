@@ -91,8 +91,11 @@
 
 
 					<nav class="desktop-nav">
-						<ul class="clearfix">
+							<ul class="clearfix">							
 							
+									
+							<li><a href=" <spring:url value="/addCatagory" />">Add
+							        Catagory</a></li>
 						</ul>
 					</nav>
 

@@ -27,11 +27,9 @@
 		<!-- COMmENT out the following to see @Service METHOD level authorization -->
 
 		<security:intercept-url pattern="/login" />
-		<!-- <security:intercept-url pattern="/admin/add" access="hasRole('ROLE_ADMIN')" 
-			/> <security:intercept-url pattern="/product/post" access="hasRole('ROLE_VENDOR)" 
-			/> -->
-		<!-- <security:intercept-url pattern="/members" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" 
-			/> -->
+		<security:intercept-url pattern="/AdminSignUp" access="hasRole('ROLE_ADMIN')" />	
+		<security:intercept-url pattern="/addProduct" access="hasRole('ROLE_VENDOR')" />		
+		<security:intercept-url pattern="/addCatagory" access="hasRole('ROLE_ADMIN')" />	
 
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->
