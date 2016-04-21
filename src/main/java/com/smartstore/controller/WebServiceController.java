@@ -41,12 +41,11 @@ public class WebServiceController {
 
 	@RequestMapping(value = "/product/disapprove", method = RequestMethod.POST)
 	public void disapprovedProduct(HttpServletRequest request, Model model, @RequestBody String json) {
-		JSONObject jsonObject;
-		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObj;
+		
 		try {
-			jsonObject = (JSONObject) jsonParser.parse(json);
-
-			Product newproduct = productService.find(Long.parseLong(jsonObject.getString("id")));
+			jsonObj = new JSONObject(json);
+			Product newproduct = productService.find(Long.parseLong(jsonObj.getString("id")));
 			newproduct.setApproval("disapproved");
 			productService.save(newproduct);
 		} catch (Exception e) {
