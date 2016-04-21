@@ -1,5 +1,6 @@
 package com.smartstore.controller;
 
+import java.math.BigDecimal;
 import java.security.Principal;
 
 import javax.servlet.http.HttpSession;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.smartstore.domain.Cart;
+import com.smartstore.domain.Customer;
 import com.smartstore.domain.ProductOrder;
 import com.smartstore.service.CategoryService;
 import com.smartstore.service.CustomerService;
@@ -58,16 +60,32 @@ public class CheckoutController {
 	@RequestMapping(method = RequestMethod.POST, params = "update")
 	public String update(@ModelAttribute ProductOrder productOrder) {
 		productOrder.updateOrderDetails();
+		
+		
+		System.out.println("update");
+		
+		
 		return "checkout";
 	}
 
 	@RequestMapping(method = RequestMethod.POST, params = "order")
 	public String checkout(SessionStatus status, @Validated @ModelAttribute ProductOrder productOrder,
-			BindingResult errors) {
+			BindingResult errors,Principal principal) {
 		if (errors.hasErrors()) {
 			return "checkout";
 		} else {
 			this.orderService.store(productOrder);
+			
+			BigDecimal totalSpend = this.cart.getGrandTotal();
+			Customer customer = this.customerService.getCustomerByUserName(principal.getName());
+			BigDecimal cardLimit = customer.getCreditCard().getCreditLimit();
+			BigDecimal availablelimit = cardLimit.subtract(totalSpend);
+			customer.getCreditCard().setCreditLimit(availablelimit);
+			System.out.println(availablelimit);
+			this.customerService.save(customer);
+			
+			System.out.println("update");
+			
 			status.setComplete(); // remove order from session
 			this.cart.clear(); // clear the cart
 			return "redirect:/home";
@@ -78,6 +96,11 @@ public class CheckoutController {
 	public String cancel(SessionStatus status, @ModelAttribute ProductOrder productOrder, HttpSession session) {
 		status.setComplete(); // remove order from session
 		this.cart.clear(); // clear the cart
+		
+		System.out.println("cancel");
+		
+		
+		
 		return "redirect:/home";
 	}
 

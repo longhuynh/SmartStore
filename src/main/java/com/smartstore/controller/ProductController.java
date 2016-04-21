@@ -72,7 +72,7 @@ public class ProductController {
 
 				product.setProductPath("/resources/images/" + product.getProductName() + ".png");
 				productImage.transferTo(
-						new File("C:\\Users\\reno\\Desktop\\Smartstore\\src\\main\\webapp\\resources\\images\\"
+						new File("C:\\Users\\fiseha\\Desktop\\SmartStore\\src\\main\\webapp\\resources\\images\\"
 								+ product.getProductName() + ".png"));
 
 			} catch (Exception e) {

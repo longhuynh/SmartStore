@@ -108,7 +108,7 @@
 
 						</figure>
 						<div class="detail">
-							<span>$244.00</span> <a
+							<span>${product.unitPrice}</span> <a
 								href="<spring:url value="/product?id=${product.productId}" />">
 								<h4>${product.productName}</h4>
 							</a>

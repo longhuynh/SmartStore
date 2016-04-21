@@ -101,4 +101,9 @@
 		<put-attribute name="title" value="Payment" />
 		<put-attribute name="body" value="/WEB-INF/jsp/myProducts.jsp" />
 	</definition>
+	
+	<definition name="addCatagory" extends="vendorLayout">
+		<put-attribute name="title" value="Catagory" />
+		<put-attribute name="body" value="/WEB-INF/jsp/addCatagory.jsp" />
+	</definition>
 </tiles-definitions>
